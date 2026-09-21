@@ -12,7 +12,8 @@
     "dev": "npm run build && npm run serve",
     "prepublishOnly": "npm run build && npm run check",
     "test": "bash scripts/run-browser-tests.sh",
-    "preview": "echo \"Run: npm run serve, then open http://localhost:3000/scripts/preview.html\""
+    "preview": "echo \"Run: npm run serve, then open http://localhost:3000/scripts/preview.html\"",
+    "smoke": "bash scripts/smoke-deploy.sh"
   },
   "engines": {
     "node": ">=18"

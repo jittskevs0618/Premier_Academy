@@ -161,11 +161,16 @@ the old WordPress slugs so existing links and search results keep working.
 
 Google Tag Manager (`GTM-KCWVX5P4`) is on every page, head and body.
 
+Redirect behaviour depends on the host's trailing-slash handling and cannot be
+verified locally — run `npm run smoke -- <url>` after any deploy that touches
+`build/redirects.js`.
+
 ### Launch checklist
 
 - [ ] Form endpoints set in `build/site.js`, and a test submission received
 - [ ] Decision made on the `/zh/` Chinese site
 - [ ] `npm run check` and `npm run test` green
+- [ ] `npm run smoke -- https://premier-academy.com` green after DNS cutover
 - [ ] SSL configured, DNS pointed at the new host
 - [ ] Old WordPress instance archived before shutdown — `npm run fetch-assets` saves the
       media library and page HTML, but archive the database separately
@@ -180,6 +185,7 @@ Google Tag Manager (`GTM-KCWVX5P4`) is on every page, head and body.
 | `npm run test` | Starts a server and runs both browser harnesses in headless Chrome |
 | `npm run fetch-assets` | Re-downloads the media library and page HTML from the live site |
 | `npm run assets` | Regenerates the web-ready images from `premier-assets/raw` |
+| `npm run smoke -- <url>` | Post-deploy check against a live host: every page, every legacy redirect, key assets, and 404 handling |
 
 The harnesses in `scripts/` are ordinary HTML pages — open them in a real browser against
 a running server to debug interactively:
