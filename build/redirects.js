@@ -73,8 +73,11 @@ function vercel() {
       // too — otherwise it 308s /about/ to /about and contradicts every canonical.
       cleanUrls: false,
       trailingSlash: true,
+      // Sources keep their trailing slash: with trailingSlash:true Vercel
+      // normalises /our-partners to /our-partners/ BEFORE matching redirects,
+      // so a slash-less source never matches and the URL 404s instead.
       redirects: redirects.map(([source, destination]) => ({
-        source: source.replace(/\/$/, ''),
+        source,
         destination,
         permanent: true,
       })),
