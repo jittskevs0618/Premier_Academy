@@ -85,10 +85,19 @@ for a in /css/styles.css /js/main.js /assets/images/logo.png \
 done
 
 echo "== 404 handling =="
-code=$(curl -sS -o /dev/null --max-time 25 -w '%{http_code}' "$BASE/this-page-does-not-exist")
+# Follow redirects: with trailingSlash:true the host 308s to add the slash
+# before serving the 404, so only the final status is meaningful.
+code=$(curl -sSL -o /dev/null --max-time 25 -w '%{http_code}' "$BASE/this-page-does-not-exist")
 checked=$((checked + 1))
 if [ "$code" != "404" ]; then
   echo "  FAIL  unknown URL returned $code, expected 404"
+  fail=$((fail + 1))
+fi
+
+# ...and that it is the styled 404, not the host's default.
+checked=$((checked + 1))
+if ! curl -sSL --max-time 25 "$BASE/this-page-does-not-exist" | grep -q 'notfound__code'; then
+  echo "  FAIL  404 page is not the styled one from this site"
   fail=$((fail + 1))
 fi
 
