@@ -1,0 +1,146 @@
+<!DOCTYPE html><meta charset="utf-8"><title>fn</title>
+<style>body{font:13px monospace;margin:0;padding:8px}iframe{position:absolute;left:-9999px}</style>
+<pre id="out">running…</pre>
+<script>
+const log = [];
+const out = () => { document.getElementById('out').textContent = log.join('\n'); };
+const ok = (c, m) => { log.push((c ? 'PASS  ' : 'FAIL  ') + m); out(); };
+const step = (m) => { log.push('---   ' + m); out(); };
+window.onerror = (m, s2, l) => { log.push('WINDOW ERROR ' + m + ' @' + l); out(); };
+
+// Poll for readiness rather than waiting on `load`: the contact page embeds a
+// Google Map, and a third-party iframe can hold `load` open indefinitely.
+function load(url, w) {
+  return new Promise((res, rej) => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = '1200px'; f.src = url;
+    document.body.appendChild(f);
+    let tries = 0;
+    (function poll() {
+      const d = f.contentDocument;
+      const ready = d && d.documentElement.getAttribute('data-pa-ready') === '1';
+      if (ready) return setTimeout(() => res(f), 40);
+      if (++tries > 400) return rej(new Error('timed out loading ' + url));
+      setTimeout(poll, 25);
+    })();
+  });
+}
+const click = (el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+(async () => {
+  step('Mobile navigation (390px)');
+  let f = await load('/', 390);
+  let d = f.contentDocument, W = f.contentWindow;
+  const nav = d.getElementById('primary-nav');
+  const burger = d.getElementById('nav-toggle');
+
+  ok(W.getComputedStyle(burger).display !== 'none', 'mobile: hamburger is visible');
+  ok(!nav.classList.contains('is-open'), 'mobile: menu starts closed');
+  click(burger);
+  ok(nav.classList.contains('is-open'), 'mobile: hamburger opens menu');
+  ok(burger.getAttribute('aria-expanded') === 'true', 'mobile: aria-expanded set on open');
+  ok(d.body.classList.contains('nav-open'), 'mobile: body scroll locked');
+
+  const about = d.querySelectorAll('.nav__item--has-children')[0];
+  click(about.querySelector('.nav__toggle'));
+  ok(about.classList.contains('is-expanded'), 'mobile: About Us submenu expands');
+  const faculty = about.querySelector('.nav__subitem--parent');
+  click(faculty.querySelector('.nav__toggle--sub'));
+  ok(faculty.classList.contains('is-expanded'), 'mobile: Faculty flyout expands');
+
+  d.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  ok(!nav.classList.contains('is-open'), 'mobile: Escape closes menu');
+  ok(!about.classList.contains('is-expanded'), 'mobile: submenus collapse on close');
+
+  step('Hero slider');
+  const slides = d.querySelectorAll('.slide');
+  ok(slides[0].classList.contains('is-active'), 'slider: first slide active');
+  click(d.querySelector('.slider__arrow--next'));
+  ok(slides[1].classList.contains('is-active'), 'slider: next advances');
+  ok(slides[1].getAttribute('aria-hidden') === null, 'slider: active slide not aria-hidden');
+  ok(slides[0].getAttribute('aria-hidden') === 'true', 'slider: inactive slide aria-hidden');
+  click(d.querySelector('.slider__arrow--prev'));
+  ok(slides[0].classList.contains('is-active'), 'slider: prev goes back');
+  click(d.querySelectorAll('.slider__dot')[2]);
+  ok(slides[2].classList.contains('is-active'), 'slider: dot jumps to slide');
+  click(d.querySelector('.slider__arrow--next'));
+  ok(slides[0].classList.contains('is-active'), 'slider: wraps past the last slide');
+
+  step('Newsletter validation');
+  let form = d.querySelector('form[data-form="newsletter"]');
+  let status = form.querySelector('.form__status');
+  form.querySelector('input[type=email]').value = 'not-an-email';
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  ok(status.classList.contains('is-error'), 'newsletter: rejects a malformed address');
+  form.querySelector('input[type=email]').value = 'parent@example.com';
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  ok(/not configured/i.test(status.textContent), 'newsletter: flags the unconfigured endpoint');
+  ok(!!form.querySelector('input[name="_gotcha"]'), 'newsletter: honeypot present');
+
+  step('Contact form validation');
+  f = await load('/contact/', 1280); d = f.contentDocument;
+  form = d.querySelector('form[data-form="contact"]');
+  status = form.querySelector('.form__status');
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  ok(d.getElementById('name').getAttribute('aria-invalid') === 'true', 'contact: empty name flagged');
+  ok(d.getElementById('email').getAttribute('aria-invalid') === 'true', 'contact: empty email flagged');
+  ok(d.getElementById('message').getAttribute('aria-invalid') === 'true', 'contact: empty message flagged');
+  ok(d.getElementById('phone').getAttribute('aria-invalid') === null, 'contact: optional phone not flagged');
+  ok(status.classList.contains('is-error'), 'contact: error summary shown');
+
+  d.getElementById('name').value = 'Wei Chen';
+  d.getElementById('email').value = 'bad@@example';
+  d.getElementById('message').value = 'Please call me about SAT prep.';
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  ok(d.getElementById('email').getAttribute('aria-invalid') === 'true', 'contact: malformed email flagged');
+  ok(d.getElementById('name').getAttribute('aria-invalid') === null, 'contact: valid name cleared');
+
+  d.getElementById('email').value = 'wei@example.com';
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  ok(/not configured/i.test(status.textContent), 'contact: valid input reaches the endpoint check');
+  ok(!!d.getElementById('sms-consent'), 'contact: SMS consent checkbox present');
+  ok(!!d.querySelector('.map iframe'), 'contact: map embed present');
+
+  step('Gallery lightbox');
+  f = await load('/about/gallery.html', 1280); d = f.contentDocument;
+  const tiles = d.querySelectorAll('[data-lightbox]');
+  const N = tiles.length;
+  ok(N > 0 && d.querySelectorAll('.gallery__item img').length === N,
+     'gallery: every tile has an image (' + N + ' tiles)');
+  click(tiles[0]);
+  let box = d.querySelector('.lightbox');
+  ok(!!box, 'lightbox: opens on tile click');
+  ok(box.getAttribute('aria-modal') === 'true', 'lightbox: marked aria-modal');
+  const counter = () => d.querySelector('.lightbox__counter').textContent;
+  ok(counter().trim() === '1 / ' + N, 'lightbox: counter starts at 1 / ' + N);
+  click(d.querySelector('.lightbox__next'));
+  ok(counter().trim() === '2 / ' + N, 'lightbox: next advances');
+  d.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+  ok(counter().trim() === '1 / ' + N, 'lightbox: arrow key navigates');
+  d.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+  ok(counter().trim() === N + ' / ' + N, 'lightbox: wraps backwards to the last image');
+  d.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  ok(!d.querySelector('.lightbox'), 'lightbox: Escape closes');
+
+  step('Accordion');
+  f = await load('/about/faculty/job-opportunities.html', 1280); d = f.contentDocument;
+  const items = d.querySelectorAll('.accordion__item');
+  ok(items[0].open && !items[1].open, 'accordion: first panel open by default');
+  items[1].open = true;
+  await new Promise(r => setTimeout(r, 60));
+  ok(!items[0].open, 'accordion: opening one closes the others');
+
+  step('Desktop nav');
+  f = await load('/', 1280); d = f.contentDocument; W = f.contentWindow;
+  ok(W.getComputedStyle(d.getElementById('nav-toggle')).display === 'none', 'desktop: hamburger hidden');
+  ok(W.getComputedStyle(d.querySelector('.langswitch--topbar')).display !== 'none', 'desktop: top-bar language switch shown');
+  ok(W.getComputedStyle(d.querySelector('.nav__actions')).display === 'none', 'desktop: mobile nav actions hidden');
+  ok(d.querySelector('.nav__item.is-active .nav__link').textContent.trim() === 'Home', 'desktop: current page marked active');
+  ok(d.getElementById('year').textContent === String(new Date().getFullYear()), 'footer: copyright year set');
+
+  const checks = log.filter(l => !l.startsWith('---'));
+  const fails = checks.filter(l => l.startsWith('FAIL')).length;
+  log.push('', `${checks.length - fails}/${checks.length} passed` + (fails ? `  — ${fails} FAILING` : '  — all green'));
+  out();
+})().catch(e => { log.push('ERROR ' + e.message); log.push(String(e.stack).split('\n').slice(0,3).join('\n')); out(); });
+</script>

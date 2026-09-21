@@ -1,0 +1,47 @@
+# Legacy WordPress URLs -> static paths
+/home/                             /  301
+/about-us/                         /about/  301
+/about-us-2/                       /about/  301
+/message-from-director/            /about/message-from-director.html  301
+/testimonials/                     /about/testimonials.html  301
+/honor-roll/                       /about/honor-roll.html  301
+/news-press/                       /about/news-press.html  301
+/gallery-2/                        /about/gallery.html  301
+/gallery/                          /about/gallery.html  301
+/faculty/                          /about/faculty/teachers.html  301
+/teachers/                         /about/faculty/teachers.html  301
+/job-opportunities/                /about/faculty/job-opportunities.html  301
+/become-a-teacher/                 /about/faculty/job-opportunities.html  301
+/our-programs/                     /college-counseling/  301
+/about-college-counseling/         /college-counseling/  301
+/success-stories-testimonials/     /college-counseling/success-stories.html  301
+/success-story/                    /college-counseling/success-stories.html  301
+/top-colleges/                     /college-counseling/top-colleges.html  301
+/transfer-services/                /college-counseling/transfer.html  301
+/sat-act/                          /services/sat-act.html  301
+/key-test-dates/                   /services/sat-act.html  301
+/contact-us/advance-placement-ap/  /services/advance-placement-ap.html  301
+/study-abroad-usa/                 /services/study-abroad.html  301
+/faq/                              /services/study-abroad.html  301
+/frequently-asked-questions/       /services/study-abroad.html  301
+/esl-eld-toefl/                    /private-tutoring/  301
+/summer-winter-programs/           /services/summer-winter-programs.html  301
+/homework-assistance/              /services/homework-assistance.html  301
+/payment-options/                  /services/payment-options.html  301
+/contact-us/payment-options/       /services/payment-options.html  301
+/our-partners/                     /partners/  301
+/contact-us/                       /contact/  301
+/privacy-policy/                   /privacy-policy.html  301
+/about-us-2/privacypolicy/         /privacy-policy.html  301
+/terms-conditions/                 /terms-conditions.html  301
+/terms-and-conditions/             /terms-conditions.html  301
+
+# WordPress admin and feeds no longer exist
+/wp-admin/*   /404.html  404
+/wp-login.php /404.html  404
+/feed         /          301
+
+# Generator source — published alongside the site, but not part of it
+/build/*                        /404.html  404
+/scripts/*                      /404.html  404
+/premier-academy-rebuild.md     /404.html  404

@@ -1,0 +1,17 @@
+<!DOCTYPE html><meta charset="utf-8"><title>preview</title>
+<style>
+  body{margin:0;background:#8895a6;font:12px system-ui;display:flex;gap:16px;padding:16px;align-items:flex-start}
+  figure{margin:0}figcaption{color:#fff;padding:4px 0;font-weight:600}
+  iframe{border:0;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.3);display:block}
+</style>
+<figure><figcaption>390 px — closed nav</figcaption>
+  <iframe id="a" src="/" width="390" height="1500"></iframe></figure>
+<figure><figcaption>390 px — open nav</figcaption>
+  <iframe id="b" src="/" width="390" height="1500"></iframe></figure>
+<figure><figcaption>768 px</figcaption>
+  <iframe id="c" src="/about/faculty/teachers.html" width="768" height="1500"></iframe></figure>
+<script>
+  document.getElementById('b').addEventListener('load', e => {
+    e.target.contentDocument.getElementById('nav-toggle').click();
+  });
+</script>

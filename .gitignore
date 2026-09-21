@@ -1,0 +1,5 @@
+node_modules/
+premier-assets/
+premier-mirror/
+.DS_Store
+*.log

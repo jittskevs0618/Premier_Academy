@@ -1,0 +1,45 @@
+<!DOCTYPE html><meta charset="utf-8"><title>overflow</title>
+<style>body{font:13px monospace;margin:0;padding:8px}iframe{position:absolute;left:-9999px;border:0}
+.bad{color:#c00;font-weight:700}.ok{color:#070}</style>
+<pre id="out">running…</pre>
+<script>
+const PAGES = ['/','/about/','/about/message-from-director.html','/about/testimonials.html',
+'/about/honor-roll.html','/about/news-press.html','/about/gallery.html',
+'/about/faculty/teachers.html','/about/faculty/job-opportunities.html',
+'/private-tutoring/','/college-counseling/','/college-counseling/success-stories.html',
+'/college-counseling/top-colleges.html','/college-counseling/transfer.html',
+'/services/sat-act.html','/services/advance-placement-ap.html','/services/study-abroad.html',
+'/services/summer-winter-programs.html','/services/homework-assistance.html',
+'/services/payment-options.html','/partners/','/contact/','/privacy-policy.html',
+'/terms-conditions.html','/404.html'];
+const WIDTHS = [360, 390, 576, 768, 992, 1200, 1440];
+
+function measure(url, w) {
+  return new Promise(res => {
+    const f = document.createElement('iframe');
+    f.style.width = w + 'px'; f.style.height = '900px'; f.src = url;
+    f.onload = () => {
+      const d = f.contentDocument;
+      const over = d.documentElement.scrollWidth - w;
+      f.remove();
+      res(over);
+    };
+    document.body.appendChild(f);
+  });
+}
+
+(async () => {
+  const jobs = [];
+  for (const p of PAGES) for (const w of WIDTHS) jobs.push(measure(p, w).then(o => [p, w, o]));
+  const results = await Promise.all(jobs);
+  const lines = [];
+  let bad = 0;
+  for (const p of PAGES) {
+    const cells = results.filter(r => r[0] === p && r[2] > 1).map(r => `${r[1]}:+${r[2]}`);
+    bad += cells.length;
+    lines.push((cells.length ? 'OVERFLOW ' : 'ok       ') + p.padEnd(48) + cells.join(' '));
+  }
+  document.getElementById('out').textContent =
+    lines.join('\n') + `\n\n${bad} overflow(s) across ${PAGES.length} pages x ${WIDTHS.length} widths`;
+})();
+</script>

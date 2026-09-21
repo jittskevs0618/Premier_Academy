@@ -1,0 +1,208 @@
+{
+  "framework": null,
+  "outputDirectory": ".",
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us-2",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/message-from-director",
+      "destination": "/about/message-from-director.html",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/about/testimonials.html",
+      "permanent": true
+    },
+    {
+      "source": "/honor-roll",
+      "destination": "/about/honor-roll.html",
+      "permanent": true
+    },
+    {
+      "source": "/news-press",
+      "destination": "/about/news-press.html",
+      "permanent": true
+    },
+    {
+      "source": "/gallery-2",
+      "destination": "/about/gallery.html",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/about/gallery.html",
+      "permanent": true
+    },
+    {
+      "source": "/faculty",
+      "destination": "/about/faculty/teachers.html",
+      "permanent": true
+    },
+    {
+      "source": "/teachers",
+      "destination": "/about/faculty/teachers.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-opportunities",
+      "destination": "/about/faculty/job-opportunities.html",
+      "permanent": true
+    },
+    {
+      "source": "/become-a-teacher",
+      "destination": "/about/faculty/job-opportunities.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-programs",
+      "destination": "/college-counseling/",
+      "permanent": true
+    },
+    {
+      "source": "/about-college-counseling",
+      "destination": "/college-counseling/",
+      "permanent": true
+    },
+    {
+      "source": "/success-stories-testimonials",
+      "destination": "/college-counseling/success-stories.html",
+      "permanent": true
+    },
+    {
+      "source": "/success-story",
+      "destination": "/college-counseling/success-stories.html",
+      "permanent": true
+    },
+    {
+      "source": "/top-colleges",
+      "destination": "/college-counseling/top-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/transfer-services",
+      "destination": "/college-counseling/transfer.html",
+      "permanent": true
+    },
+    {
+      "source": "/sat-act",
+      "destination": "/services/sat-act.html",
+      "permanent": true
+    },
+    {
+      "source": "/key-test-dates",
+      "destination": "/services/sat-act.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/advance-placement-ap",
+      "destination": "/services/advance-placement-ap.html",
+      "permanent": true
+    },
+    {
+      "source": "/study-abroad-usa",
+      "destination": "/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/frequently-asked-questions",
+      "destination": "/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/esl-eld-toefl",
+      "destination": "/private-tutoring/",
+      "permanent": true
+    },
+    {
+      "source": "/summer-winter-programs",
+      "destination": "/services/summer-winter-programs.html",
+      "permanent": true
+    },
+    {
+      "source": "/homework-assistance",
+      "destination": "/services/homework-assistance.html",
+      "permanent": true
+    },
+    {
+      "source": "/payment-options",
+      "destination": "/services/payment-options.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/payment-options",
+      "destination": "/services/payment-options.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-partners",
+      "destination": "/partners/",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us-2/privacypolicy",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-conditions",
+      "destination": "/terms-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms-conditions.html",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
+}

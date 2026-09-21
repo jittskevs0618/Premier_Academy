@@ -1,0 +1,20 @@
+{
+  "name": "premier-academy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static rebuild of premier-academy.com",
+  "scripts": {
+    "build": "node build/build.js",
+    "check": "node scripts/check-links.js",
+    "assets": "python3 scripts/process-assets.py premier-assets/raw",
+    "fetch-assets": "bash scripts/fetch-assets.sh",
+    "serve": "npx --yes serve . -l 3000",
+    "dev": "npm run build && npm run serve",
+    "prepublishOnly": "npm run build && npm run check",
+    "test": "bash scripts/run-browser-tests.sh",
+    "preview": "echo \"Run: npm run serve, then open http://localhost:3000/scripts/preview.html\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /build/
+Disallow: /scripts/
+Disallow: /premier-academy-rebuild.md
+
+Sitemap: https://premier-academy.com/sitemap.xml
