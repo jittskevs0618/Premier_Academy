@@ -102,15 +102,37 @@ placeholders. Until you replace them, submitting shows an explanatory error rath
 silently failing. Sign up with Formspree, Web3Forms or Netlify Forms, paste the real URLs
 in, and rebuild. A honeypot field (`_gotcha`) replaces the old CAPTCHA on both forms.
 
-### 2. The Chinese site
+### 2. The Chinese site — decision needed
 
-**The live WordPress site has a full Chinese tree at `/zh/` that this rebuild does not
-cover.** The language toggle links there and probes the URL before navigating, so visitors
-never hit a 404 — but until `/zh/` exists on the new host, Chinese-speaking visitors get a
-"coming soon" message instead of the site they have today.
+**The live site serves a Chinese version at `/zh/` that this rebuild does not cover.** The
+language toggle probes the URL before navigating, so nobody hits a 404 — but until `/zh/`
+exists on the new host, Chinese-speaking visitors get a "coming soon" message instead of
+the site they have today.
 
-This is the largest remaining gap. Decide whether to port `/zh/`, proxy it, or accept the
-regression before cutover.
+What it actually is, measured rather than assumed:
+
+- Rendered by the **TranslatePress** plugin, not separate pages. Zero of the 66 WordPress
+  pages live under `/zh/`, so there is nothing to export — the translations sit in the
+  database and die with the instance.
+- **Human-written, not machine output.** The homepage is 84% Chinese and reads naturally,
+  using the brand's own name, 培名学院.
+- **Partial coverage.** Across 29 pages the mean is 56% Chinese: 14 pages are well
+  translated (>60%), 7 partial, and 8 barely touched — the legal pages and job listing are
+  genuinely untranslated, while the teacher and honor-roll pages score low only because
+  they are mostly proper nouns.
+
+**Already preserved for you**, so the decision is not urgent and nothing is lost at
+shutdown:
+
+- `premier-assets/html-zh/` — all 29 rendered Chinese pages (gitignored, local only)
+- `content/zh-content.json` — 403 translated blocks extracted and committed to the repo
+
+Re-run either with `npm run fetch-assets` then `npm run extract-zh`.
+
+The options, roughly ascending in effort: accept the regression and drop the toggle; keep
+the toggle pointing at a later build; or generate a `/zh/` tree from `zh-content.json`,
+which is the same shape of work as the English build and needs a Chinese speaker to fill
+the eight thin pages.
 
 ### 3. Pages that exist on WordPress but are not in this build
 
@@ -168,7 +190,7 @@ verified locally — run `npm run smoke -- <url>` after any deploy that touches
 ### Launch checklist
 
 - [ ] Form endpoints set in `build/site.js`, and a test submission received
-- [ ] Decision made on the `/zh/` Chinese site
+- [ ] Decision made on the `/zh/` Chinese site (content already archived — see above)
 - [ ] `npm run check` and `npm run test` green
 - [ ] `npm run smoke -- https://premier-academy.com` green after DNS cutover
 - [ ] SSL configured, DNS pointed at the new host
@@ -186,6 +208,7 @@ verified locally — run `npm run smoke -- <url>` after any deploy that touches
 | `npm run fetch-assets` | Re-downloads the media library and page HTML from the live site |
 | `npm run assets` | Regenerates the web-ready images from `premier-assets/raw` |
 | `npm run smoke -- <url>` | Post-deploy check against a live host: every page, every legacy redirect, key assets, and 404 handling |
+| `npm run extract-zh` | Rebuilds `content/zh-content.json` from the archived `/zh/` pages |
 
 The harnesses in `scripts/` are ordinary HTML pages — open them in a real browser against
 a running server to debug interactively:

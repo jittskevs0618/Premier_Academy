@@ -13,7 +13,8 @@
     "prepublishOnly": "npm run build && npm run check",
     "test": "bash scripts/run-browser-tests.sh",
     "preview": "echo \"Run: npm run serve, then open http://localhost:3000/scripts/preview.html\"",
-    "smoke": "bash scripts/smoke-deploy.sh"
+    "smoke": "bash scripts/smoke-deploy.sh",
+    "extract-zh": "python3 scripts/extract-zh.py"
   },
   "engines": {
     "node": ">=18"

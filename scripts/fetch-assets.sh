@@ -75,6 +75,27 @@ for p in "" about-us message-from-director testimonials honor-roll news-press \
 done
 echo "    saved $(ls -1 "$OUT/html" | wc -l | tr -d ' ') pages"
 
+echo "==> Chinese (/zh/) pages"
+# The Chinese site is rendered by TranslatePress from the database — there are
+# no /zh/ pages in WordPress to export, so the rendered HTML is the only copy.
+mkdir -p "$OUT/html-zh"
+zh_ok=0
+for p in "" about-us message-from-director testimonials honor-roll news-press \
+         gallery-2 teachers job-opportunities faculty private-tutoring \
+         our-programs about-college-counseling success-stories-testimonials \
+         top-colleges transfer-services sat-act contact-us/advance-placement-ap \
+         study-abroad-usa summer-winter-programs homework-assistance \
+         payment-options our-partners contact-us privacy-policy \
+         terms-conditions esl-eld-toefl faq home; do
+  name=$(echo "${p:-index}" | tr '/' '_')
+  # Trailing slash matters: without it TranslatePress 301s and the body is empty.
+  code=$(curl -sSL --max-time 40 -A "$UA" -w "%{http_code}" \
+    "$SITE/zh/${p}/" -o "$OUT/html-zh/${name}.html" 2>/dev/null)
+  if [ "$code" = "200" ]; then zh_ok=$((zh_ok + 1)); else rm -f "$OUT/html-zh/${name}.html"; fi
+done
+echo "    saved $zh_ok Chinese pages"
+
 echo
 echo "Done. Sources in ./$OUT"
 echo "Next: python3 scripts/process-assets.py $OUT/raw && npm run build"
+echo "      python3 scripts/extract-zh.py   # refresh content/zh-content.json"
