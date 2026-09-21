@@ -16,13 +16,43 @@ BASE="${1:-https://premier-academy-flame.vercel.app}"
 BASE="${BASE%/}"
 fail=0
 checked=0
+unreachable=0
 
+# Confirm the host is reachable before asserting anything. Without this a
+# dropped connection reports every check as a failure, which reads like a
+# broken deploy and invites a needless rollback.
+preflight() {
+  local i
+  for i in 1 2 3 4 5; do
+    if curl -sS -o /dev/null --max-time 15 "$BASE/" 2>/dev/null; then return 0; fi
+    [ "$i" -lt 5 ] && sleep $((i * 4))
+  done
+  return 1
+}
+
+if ! preflight; then
+  echo "Cannot reach $BASE after 5 attempts."
+  echo "Check your connection and that the deployment exists. Nothing was asserted."
+  exit 2
+fi
+
+# curl reports 000 for connection/DNS failure rather than an HTTP status, so a
+# check that comes back 000 is retried before being believed.
 check() {                       # check <url-path> <expected-final-path>
   local path="$1" want="$2"
-  local final code
-  final=$(curl -sSL -o /dev/null --max-time 25 -w '%{url_effective}' "$BASE$path" 2>/dev/null)
-  code=$(curl -sSL -o /dev/null --max-time 25 -w '%{http_code}' "$BASE$path" 2>/dev/null)
+  local final code i
+  for i in 1 2 3; do
+    final=$(curl -sSL -o /dev/null --max-time 25 -w '%{url_effective}' "$BASE$path" 2>/dev/null)
+    code=$(curl -sSL -o /dev/null --max-time 25 -w '%{http_code}' "$BASE$path" 2>/dev/null)
+    [ "$code" != "000" ] && break
+    sleep $((i * 3))
+  done
   checked=$((checked + 1))
+  if [ "$code" = "000" ]; then
+    printf '  UNREACHABLE  %-36s (network, not the site)\n' "$path"
+    unreachable=$((unreachable + 1))
+    return
+  fi
   if [ "$code" != "200" ] || [ "${final#"$BASE"}" != "$want" ]; then
     printf '  FAIL  %-36s -> %s [%s]  expected %s\n' "$path" "${final#"$BASE"}" "$code" "$want"
     fail=$((fail + 1))
@@ -102,6 +132,11 @@ if ! curl -sSL --max-time 25 "$BASE/this-page-does-not-exist" | grep -q 'notfoun
 fi
 
 echo
+if [ "$unreachable" -gt 0 ]; then
+  echo "$unreachable of $checked checks could not reach the host — results are incomplete."
+  echo "This indicates a network problem, not a failing deployment. Re-run when connected."
+  exit 2
+fi
 if [ "$fail" -eq 0 ]; then
   echo "All $checked checks passed."
 else
