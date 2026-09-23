@@ -34,7 +34,7 @@ ${pageHero({
   <div class="container">
     <div class="split">
       <div class="split__media">
-        <img class="rounded" src="${rel('/assets/images/services/private-tutoring.jpg', depth)}" alt="A Premier Academy tutor working one-on-one with a student" width="640" height="480" loading="lazy">
+        <img class="rounded" src="${rel(cTutoring.intro.image, depth)}" alt="${cTutoring.intro.imageAlt}" width="640" height="480" loading="lazy">
       </div>
       <div class="split__body">
         ${prose(`

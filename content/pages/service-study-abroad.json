@@ -1,11 +1,25 @@
 {
-  "hero": { "title": "Study Abroad (LIUXUE)", "lead": "Middle school and high school boarding school applications in the United States." },
+  "hero": {
+    "title": "Study Abroad (LIUXUE)",
+    "lead": "Middle school and high school boarding school applications in the United States."
+  },
   "intro": {
     "lead": "Premier Academy can help you apply to a school in the USA early, before college starts.",
     "body": "We have connections with, and knowledge of, the best private and boarding schools in America. The earlier your child enters school in the United States, the stronger their position when college applications come around.",
-    "ticks": ["Online application guidance", "Extracurricular guidance", "School tour coordination"],
-    "ctaLabel": "Talk to us about placement"
+    "ticks": [
+      "Online application guidance",
+      "Extracurricular guidance",
+      "School tour coordination"
+    ],
+    "ctaLabel": "Talk to us about placement",
+    "image": "/assets/images/services/study-abroad.jpg",
+    "imageAlt": "International students studying in the United States"
   },
-  "faq": { "eyebrow": "Frequently Asked Questions", "title": "What families ask us most" },
-  "cta": { "title": "Planning a move to the US?" }
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "What families ask us most"
+  },
+  "cta": {
+    "title": "Planning a move to the US?"
+  }
 }

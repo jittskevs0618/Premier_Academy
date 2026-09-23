@@ -1,38 +1,40 @@
-[
-  {
-    "title": "Private Tutoring",
-    "text": "One-on-one online and in-person tutoring across math, English, science, history and test prep — matched to each student.",
-    "url": "/private-tutoring/",
-    "image": "/assets/images/services/private-tutoring.jpg"
-  },
-  {
-    "title": "College Counseling",
-    "text": "Comprehensive counseling from curriculum planning through essays, interviews and financial aid.",
-    "url": "/college-counseling/",
-    "image": "/assets/images/services/college-counseling.jpg"
-  },
-  {
-    "title": "SAT / ACT",
-    "text": "Personalized SAT English and Math, SAT II subject tests and ACT preparation with weekly graded practice exams.",
-    "url": "/services/sat-act.html",
-    "image": "/assets/images/services/sat-act.jpg"
-  },
-  {
-    "title": "Advance Placement (AP)",
-    "text": "An official College Board testing center. The majority of our students score 5s and 4s on their AP exams.",
-    "url": "/services/advance-placement-ap.html",
-    "image": "/assets/images/services/ap.jpg"
-  },
-  {
-    "title": "After School Homework Assistance",
-    "text": "Year-round homework help running August through mid-June, Monday through Friday, in person or online.",
-    "url": "/services/homework-assistance.html",
-    "image": "/assets/images/services/homework.jpg"
-  },
-  {
-    "title": "Study Abroad (LIUXUE)",
-    "text": "Placement, transition and academic support for international students studying in the United States.",
-    "url": "/services/study-abroad.html",
-    "image": "/assets/images/services/study-abroad.jpg"
-  }
-]
+{
+  "items": [
+    {
+      "title": "Private Tutoring",
+      "text": "One-on-one online and in-person tutoring across math, English, science, history and test prep — matched to each student.",
+      "url": "/private-tutoring/",
+      "image": "/assets/images/services/private-tutoring.jpg"
+    },
+    {
+      "title": "College Counseling",
+      "text": "Comprehensive counseling from curriculum planning through essays, interviews and financial aid.",
+      "url": "/college-counseling/",
+      "image": "/assets/images/services/college-counseling.jpg"
+    },
+    {
+      "title": "SAT / ACT",
+      "text": "Personalized SAT English and Math, SAT II subject tests and ACT preparation with weekly graded practice exams.",
+      "url": "/services/sat-act.html",
+      "image": "/assets/images/services/sat-act.jpg"
+    },
+    {
+      "title": "Advance Placement (AP)",
+      "text": "An official College Board testing center. The majority of our students score 5s and 4s on their AP exams.",
+      "url": "/services/advance-placement-ap.html",
+      "image": "/assets/images/services/ap.jpg"
+    },
+    {
+      "title": "After School Homework Assistance",
+      "text": "Year-round homework help running August through mid-June, Monday through Friday, in person or online.",
+      "url": "/services/homework-assistance.html",
+      "image": "/assets/images/services/homework.jpg"
+    },
+    {
+      "title": "Study Abroad (LIUXUE)",
+      "text": "Placement, transition and academic support for international students studying in the United States.",
+      "url": "/services/study-abroad.html",
+      "image": "/assets/images/services/study-abroad.jpg"
+    }
+  ]
+}

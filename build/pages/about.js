@@ -37,7 +37,7 @@ ${pageHero({
   <div class="container">
     <div class="split">
       <div class="split__media">
-        <img class="rounded" src="${rel('/assets/images/about-campus.jpg', depth)}" alt="Premier Academy students" width="900" height="675" loading="lazy">
+        <img class="rounded" src="${rel(cAbout.intro.image, depth)}" alt="${cAbout.intro.imageAlt}" width="900" height="675" loading="lazy">
       </div>
       <div class="split__body">
         ${prose(`
@@ -86,7 +86,7 @@ ${pageHero({
     <div class="split split--narrow-media">
       <div class="split__media">
         <figure class="portrait">
-          <img src="${rel('/assets/images/director.jpg', depth)}" alt="Allison Huang, Director of Premier Academy" width="225" height="300">
+          <img src="${rel(cDirector.image, depth)}" alt="${cDirector.imageAlt}" width="225" height="300">
           <figcaption><strong>${cDirector.name}</strong><span>${cDirector.role}</span></figcaption>
         </figure>
       </div>

@@ -124,7 +124,7 @@ function header(current, depth) {
 
   <div class="container header__inner">
     <a class="brand" href="${rel('/', depth)}" aria-label="${site.name} home">
-      <img class="brand__logo" src="${rel('/assets/images/logo.png', depth)}" alt="${site.name}" width="190" height="56">
+      <img class="brand__logo" src="${rel(site.logo, depth)}" alt="${site.name}" width="190" height="56">
     </a>
 
     <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
@@ -167,7 +167,7 @@ function footer(depth) {
   ${wave('footer')}
   <div class="container footer__grid">
     <div class="footer__col">
-      <img class="footer__logo" src="${rel('/assets/images/logo-footer.png', depth)}" alt="${site.name}" width="180" height="54">
+      <img class="footer__logo" src="${rel(site.logoFooter, depth)}" alt="${site.name}" width="180" height="54">
       <p class="footer__about">${site.about}</p>
       <p class="footer__since">Serving the San Gabriel Valley since ${site.founded}.</p>
     </div>

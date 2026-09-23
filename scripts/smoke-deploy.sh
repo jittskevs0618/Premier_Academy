@@ -122,6 +122,23 @@ for a in /css/styles.css /js/main.js /assets/images/logo.png \
   check "$a" "$a"
 done
 
+echo "== content editor =="
+check "/admin/" "/admin/"
+checked=$((checked + 1))
+admin_body=$(curl -sSL --max-time 25 "$BASE/admin/" 2>/dev/null)
+if ! echo "$admin_body" | grep -qi 'decap-cms'; then
+  echo "  FAIL  /admin/ did not reference the Decap CMS bundle"
+  fail=$((fail + 1))
+fi
+# /api/auth redirects to GitHub (302) whether or not OAuth env vars are set
+# correctly; a 500 here means GITHUB_OAUTH_CLIENT_ID is missing in Vercel.
+checked=$((checked + 1))
+auth_code=$(curl -sS -o /dev/null --max-time 25 -w '%{http_code}' "$BASE/api/auth" 2>/dev/null)
+if [ "$auth_code" != "302" ]; then
+  echo "  FAIL  /api/auth returned $auth_code, expected 302 (check GITHUB_OAUTH_CLIENT_ID in Vercel)"
+  fail=$((fail + 1))
+fi
+
 echo "== 404 handling =="
 # Follow redirects: with trailingSlash:true the host 308s to add the slash
 # before serving the 404, so only the final status is meaningful.

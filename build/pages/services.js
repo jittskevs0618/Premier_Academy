@@ -11,11 +11,11 @@ const { apSubjects } = require('../data');
 const cSatAct = require('../../content/pages/service-sat-act.json');
 const cAp = require('../../content/pages/service-ap.json');
 const cStudyAbroad = require('../../content/pages/service-study-abroad.json');
-const studyAbroadFaq = require('../../content/study-abroad-faq.json');
+const studyAbroadFaq = require('../../content/study-abroad-faq.json').items;
 const cSummerWinter = require('../../content/pages/service-summer-winter.json');
 const cHomework = require('../../content/pages/service-homework.json');
 const cPayment = require('../../content/pages/service-payment.json');
-const paymentMethods = require('../../content/payment-methods.json');
+const paymentMethods = require('../../content/payment-methods.json').items;
 
 const crumbServices = { label: 'Other Services' };
 
@@ -164,7 +164,7 @@ ${pageHero({
   <div class="container">
     <div class="split">
       <div class="split__media">
-        <img class="rounded" src="${rel('/assets/images/services/study-abroad.jpg', depth)}" alt="International students studying in the United States" width="800" height="500" loading="lazy">
+        <img class="rounded" src="${rel(cStudyAbroad.intro.image, depth)}" alt="${cStudyAbroad.intro.imageAlt}" width="800" height="500" loading="lazy">
       </div>
       <div class="split__body">
         ${prose(`
@@ -270,7 +270,7 @@ ${pageHero({
   <div class="container">
     <div class="split">
       <div class="split__media">
-        <img class="rounded" src="${rel('/assets/images/services/homework.jpg', depth)}" alt="Students completing homework with instructor support" width="640" height="480" loading="lazy">
+        <img class="rounded" src="${rel(cHomework.intro.image, depth)}" alt="${cHomework.intro.imageAlt}" width="640" height="480" loading="lazy">
       </div>
       <div class="split__body">
         ${prose(`

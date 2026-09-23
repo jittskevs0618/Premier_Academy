@@ -29,28 +29,46 @@ exactly where the spec's Section 1 says they should. Those HTML files are **gene
 edit the sources in `build/`, not the output.
 
 ```
-build/                  ← generator source (edit these)
-  build.js              entry point; writes pages, sitemap, robots, redirects
-  layout.js             <head>, header + nav, footer, GTM, wave dividers
-  site.js               contact details, social URLs, form endpoints, SMS copy
-  nav.js                the navigation tree
-  data.js               teachers, testimonials, gallery, partners, colleges, embeds
-  components.js         reusable blocks (cards, quotes, tables, accordions, CTAs)
-  icons.js              inline SVG icons
-  redirects.js          old WordPress slugs → new paths
-  pages/                page content: home, about, counseling, services, misc
+content/                ← ALL editable copy lives here (edit these, or use /admin/)
+  site.json              contact details, hours, social URLs, form endpoints, logo
+  hero-slides.json        the 3 homepage hero slides
+  teachers.json, testimonials.json, honor-roll.json, gallery.json, ...
+                          list-based content shared across pages
+  pages/*.json            per-page copy: headings, prose, image paths
+  i18n/zh.json            English → Chinese dictionary (site.json/lists have no
+                          Chinese counterpart; only prose text is translated)
 
+build/                  ← generator source (rarely needs editing)
+  build.js              entry point; writes pages, sitemap, robots, redirects
+  layout.js             <head>, header + nav, footer, GTM, wave dividers, locales
+  site.js               loads content/site.json, adds a couple of computed fields
+  i18n.js                swaps English text for content/i18n/zh.json's Chinese
+  nav.js                 the navigation tree (structural, not content)
+  data.js                 loads content/*.json list files for the templates
+  components.js          reusable blocks (cards, quotes, tables, accordions, CTAs)
+  icons.js                inline SVG icons
+  redirects.js            old WordPress slugs → new paths (English + Chinese)
+  pages/                  page templates: home, about, counseling, services, misc —
+                          read from content/pages/*.json, render layout in code
+
+admin/                  the Decap CMS editor UI — see CMS_SETUP.md
+api/                    its GitHub OAuth backend (Vercel serverless functions)
 css/styles.css          hand-authored; not generated
 js/main.js              hand-authored; not generated
-assets/                 84 real images pulled from the live site
+assets/                 real images pulled from the live site, plus CMS uploads
 scripts/                dev tooling — see below
 
-index.html, about/, …   ← GENERATED. Do not edit; `npm run build` overwrites them.
+index.html, about/, zh/, …   ← GENERATED. Do not edit; `npm run build` overwrites them.
 ```
 
-**To change page copy**, edit the matching file in `build/pages/` and rebuild.
-**To change contact details, social links or form endpoints**, edit `build/site.js` once —
-every page picks it up.
+**To change page copy, images, or lists (teachers, testimonials, ...)**, edit the matching
+file in `content/` — or use the web editor at `/admin/` (see below) instead of touching
+JSON by hand. Either way, run `npm run build` afterward if editing files directly; the CMS
+triggers a rebuild automatically via Vercel.
+
+**Adding a genuinely new page** (not editing an existing one) still needs a developer: add
+a template function in `build/pages/*.js` the same way the existing ones are structured.
+Everything else — wording, images, list rows — is real, no-code content editing.
 
 ---
 
@@ -93,14 +111,32 @@ Everything below was verified against premier-academy.com rather than guessed.
 
 ---
 
+## Content editor for non-technical staff
+
+**`/admin/`** is a web-based content editor ([Decap CMS](https://decapcms.org/))
+that lets someone with no coding background edit page text, swap images, and
+manage lists (teachers, testimonials, honor roll, partners, gallery, FAQ) —
+changes commit to GitHub and Vercel redeploys automatically.
+
+It needs one five-minute manual setup step (creating a GitHub OAuth App —
+something no API can do on your behalf) before the login button works. See
+**[CMS_SETUP.md](CMS_SETUP.md)** for exact copy-paste values.
+
+This works because every editable string on the site was pulled out of the
+page templates into `content/*.json` (see "How this repo is laid out" above)
+— the CMS edits those files directly, and `build/pages/*.js` just reads
+them. Nothing about the site's design, layout, speed or security changes;
+only where the words and images live.
+
 ## Before launch — what still needs you
 
 ### 1. Form endpoints
 
-`build/site.js` has `formEndpoint` and `newsletterEndpoint` set to `YOUR_FORM_ID`
-placeholders. Until you replace them, submitting shows an explanatory error rather than
-silently failing. Sign up with Formspree, Web3Forms or Netlify Forms, paste the real URLs
-in, and rebuild. A honeypot field (`_gotcha`) replaces the old CAPTCHA on both forms.
+`content/site.json` has `formEndpoint` and `newsletterEndpoint` set to `YOUR_FORM_ID`
+placeholders — editable via `/admin/` → Site Settings, or by hand. Until you replace them,
+submitting shows an explanatory error rather than silently failing. Sign up with
+Formspree, Web3Forms or Netlify Forms, paste the real URLs in. A honeypot field
+(`_gotcha`) replaces the old CAPTCHA on both forms.
 
 ### 2. The Chinese site — built
 

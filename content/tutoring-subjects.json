@@ -1,67 +1,69 @@
-[
-  {
-    "title": "Math",
-    "items": [
-      "Calculus",
-      "Trigonometry",
-      "Algebra",
-      "Geometry",
-      "Basic Math"
-    ]
-  },
-  {
-    "title": "English",
-    "items": [
-      "ESL / ELD",
-      "Reading",
-      "Writing",
-      "Grammar"
-    ]
-  },
-  {
-    "title": "Science",
-    "items": [
-      "Basic Science",
-      "Physics",
-      "Chemistry",
-      "Biology",
-      "Life Science",
-      "Earth Science"
-    ]
-  },
-  {
-    "title": "AP Subjects",
-    "items": [
-      "AP Chemistry",
-      "AP Physics",
-      "AP Calculus AB & BC",
-      "AP Economics",
-      "AP Psychology",
-      "AP Computer Science",
-      "AP Statistics",
-      "AP Biology"
-    ]
-  },
-  {
-    "title": "History & Social Studies",
-    "items": [
-      "Social Studies",
-      "World History",
-      "US History",
-      "European History",
-      "AP US History",
-      "AP World History",
-      "AP European History",
-      "AP US Government"
-    ]
-  },
-  {
-    "title": "SAT & ISEE",
-    "items": [
-      "SAT Reading and Writing",
-      "SAT Math",
-      "ISEE Math (all levels)",
-      "ISEE English (all levels)"
-    ]
-  }
-]
+{
+  "items": [
+    {
+      "title": "Math",
+      "items": [
+        "Calculus",
+        "Trigonometry",
+        "Algebra",
+        "Geometry",
+        "Basic Math"
+      ]
+    },
+    {
+      "title": "English",
+      "items": [
+        "ESL / ELD",
+        "Reading",
+        "Writing",
+        "Grammar"
+      ]
+    },
+    {
+      "title": "Science",
+      "items": [
+        "Basic Science",
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Life Science",
+        "Earth Science"
+      ]
+    },
+    {
+      "title": "AP Subjects",
+      "items": [
+        "AP Chemistry",
+        "AP Physics",
+        "AP Calculus AB & BC",
+        "AP Economics",
+        "AP Psychology",
+        "AP Computer Science",
+        "AP Statistics",
+        "AP Biology"
+      ]
+    },
+    {
+      "title": "History & Social Studies",
+      "items": [
+        "Social Studies",
+        "World History",
+        "US History",
+        "European History",
+        "AP US History",
+        "AP World History",
+        "AP European History",
+        "AP US Government"
+      ]
+    },
+    {
+      "title": "SAT & ISEE",
+      "items": [
+        "SAT Reading and Writing",
+        "SAT Math",
+        "ISEE Math (all levels)",
+        "ISEE English (all levels)"
+      ]
+    }
+  ]
+}

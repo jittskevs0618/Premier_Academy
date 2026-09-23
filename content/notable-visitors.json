@@ -1,78 +1,80 @@
-[
-  {
-    "src": "/assets/images/partners/notable-01.jpg",
-    "caption": "Steve Chen, co-founder of YouTube"
-  },
-  {
-    "src": "/assets/images/partners/notable-02.jpg",
-    "caption": "Soong May-ling with the Wuu family at her 100th birthday"
-  },
-  {
-    "src": "/assets/images/partners/notable-03.jpg",
-    "caption": "Sammo Hung, film star"
-  },
-  {
-    "src": "/assets/images/partners/notable-04.jpg",
-    "caption": "Rupert Murdoch and Minister Tian"
-  },
-  {
-    "src": "/assets/images/partners/notable-05.jpg",
-    "caption": "Rihanna"
-  },
-  {
-    "src": "/assets/images/partners/notable-06.jpg",
-    "caption": "Quentin Tarantino and Donnie Yen"
-  },
-  {
-    "src": "/assets/images/partners/notable-07.jpg",
-    "caption": "President Bill Clinton"
-  },
-  {
-    "src": "/assets/images/partners/notable-08.jpg",
-    "caption": "Nobel Prize winner Yang Chen-Ning"
-  },
-  {
-    "src": "/assets/images/partners/notable-09.jpg",
-    "caption": "Maggie Q"
-  },
-  {
-    "src": "/assets/images/partners/notable-10.jpg",
-    "caption": "Lang Lang, pianist"
-  },
-  {
-    "src": "/assets/images/partners/notable-11.jpg",
-    "caption": "Lakers owner Jerry Buss"
-  },
-  {
-    "src": "/assets/images/partners/notable-12.jpg",
-    "caption": "Kenny G"
-  },
-  {
-    "src": "/assets/images/partners/notable-13.jpg",
-    "caption": "Jackie Chan"
-  },
-  {
-    "src": "/assets/images/partners/notable-14.jpg",
-    "caption": "Dr. David Ho, AIDS researcher"
-  },
-  {
-    "src": "/assets/images/partners/notable-15.jpg",
-    "caption": "Boxing champion Manny Pacquiao"
-  },
-  {
-    "src": "/assets/images/partners/notable-16.jpg",
-    "caption": "Chef Ming Tsai"
-  },
-  {
-    "src": "/assets/images/partners/notable-17.jpg",
-    "caption": "CoCo Lee"
-  },
-  {
-    "src": "/assets/images/partners/notable-18.jpg",
-    "caption": "Zhang Ziyi"
-  },
-  {
-    "src": "/assets/images/partners/notable-19.jpg",
-    "caption": "Yo-Yo Ma, cellist"
-  }
-]
+{
+  "items": [
+    {
+      "src": "/assets/images/partners/notable-01.jpg",
+      "caption": "Steve Chen, co-founder of YouTube"
+    },
+    {
+      "src": "/assets/images/partners/notable-02.jpg",
+      "caption": "Soong May-ling with the Wuu family at her 100th birthday"
+    },
+    {
+      "src": "/assets/images/partners/notable-03.jpg",
+      "caption": "Sammo Hung, film star"
+    },
+    {
+      "src": "/assets/images/partners/notable-04.jpg",
+      "caption": "Rupert Murdoch and Minister Tian"
+    },
+    {
+      "src": "/assets/images/partners/notable-05.jpg",
+      "caption": "Rihanna"
+    },
+    {
+      "src": "/assets/images/partners/notable-06.jpg",
+      "caption": "Quentin Tarantino and Donnie Yen"
+    },
+    {
+      "src": "/assets/images/partners/notable-07.jpg",
+      "caption": "President Bill Clinton"
+    },
+    {
+      "src": "/assets/images/partners/notable-08.jpg",
+      "caption": "Nobel Prize winner Yang Chen-Ning"
+    },
+    {
+      "src": "/assets/images/partners/notable-09.jpg",
+      "caption": "Maggie Q"
+    },
+    {
+      "src": "/assets/images/partners/notable-10.jpg",
+      "caption": "Lang Lang, pianist"
+    },
+    {
+      "src": "/assets/images/partners/notable-11.jpg",
+      "caption": "Lakers owner Jerry Buss"
+    },
+    {
+      "src": "/assets/images/partners/notable-12.jpg",
+      "caption": "Kenny G"
+    },
+    {
+      "src": "/assets/images/partners/notable-13.jpg",
+      "caption": "Jackie Chan"
+    },
+    {
+      "src": "/assets/images/partners/notable-14.jpg",
+      "caption": "Dr. David Ho, AIDS researcher"
+    },
+    {
+      "src": "/assets/images/partners/notable-15.jpg",
+      "caption": "Boxing champion Manny Pacquiao"
+    },
+    {
+      "src": "/assets/images/partners/notable-16.jpg",
+      "caption": "Chef Ming Tsai"
+    },
+    {
+      "src": "/assets/images/partners/notable-17.jpg",
+      "caption": "CoCo Lee"
+    },
+    {
+      "src": "/assets/images/partners/notable-18.jpg",
+      "caption": "Zhang Ziyi"
+    },
+    {
+      "src": "/assets/images/partners/notable-19.jpg",
+      "caption": "Yo-Yo Ma, cellist"
+    }
+  ]
+}

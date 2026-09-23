@@ -1,26 +1,28 @@
-[
-  {
-    "image": "/assets/images/hero/hero-1.jpg",
-    "eyebrow": "Since {founded} · San Gabriel, CA",
-    "title": "We at Premier Academy offer special academic support with our test prep, college counseling, and private tutoring programs",
-    "text": "A challenging and stimulating learning environment built to develop intellect, self-confidence and discipline.",
-    "ctaLabel": "Explore Our Programs",
-    "ctaUrl": "/college-counseling/"
-  },
-  {
-    "image": "/assets/images/hero/hero-2.jpg",
-    "eyebrow": "College Counseling",
-    "title": "Over 20 years sending students to the nation’s top universities",
-    "text": "Curriculum planning, essays, interviews, financial aid and scholarship searches — start with a free one-hour session.",
-    "ctaLabel": "Book a Free Session",
-    "ctaUrl": "/contact/"
-  },
-  {
-    "image": "/assets/images/hero/hero-3.jpg",
-    "eyebrow": "After School Homework Assistance",
-    "title": "Support every school day, August through mid-June",
-    "text": "One-on-one help Monday through Friday, in person at our San Gabriel campus or online from home.",
-    "ctaLabel": "See the Program",
-    "ctaUrl": "/services/homework-assistance.html"
-  }
-]
+{
+  "items": [
+    {
+      "image": "/assets/images/hero/hero-1.jpg",
+      "eyebrow": "Since {founded} · San Gabriel, CA",
+      "title": "We at Premier Academy offer special academic support with our test prep, college counseling, and private tutoring programs",
+      "text": "A challenging and stimulating learning environment built to develop intellect, self-confidence and discipline.",
+      "ctaLabel": "Explore Our Programs",
+      "ctaUrl": "/college-counseling/"
+    },
+    {
+      "image": "/assets/images/hero/hero-2.jpg",
+      "eyebrow": "College Counseling",
+      "title": "Over 20 years sending students to the nation’s top universities",
+      "text": "Curriculum planning, essays, interviews, financial aid and scholarship searches — start with a free one-hour session.",
+      "ctaLabel": "Book a Free Session",
+      "ctaUrl": "/contact/"
+    },
+    {
+      "image": "/assets/images/hero/hero-3.jpg",
+      "eyebrow": "After School Homework Assistance",
+      "title": "Support every school day, August through mid-June",
+      "text": "One-on-one help Monday through Friday, in person at our San Gabriel campus or online from home.",
+      "ctaLabel": "See the Program",
+      "ctaUrl": "/services/homework-assistance.html"
+    }
+  ]
+}

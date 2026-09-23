@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Premier Academy — Content Editor</title>
+<style>
+  /* Shown for the instant before Decap's own UI takes over the page. */
+  body { margin: 0; font: 15px system-ui, sans-serif; background: #f8f9f8; color: #4a4a58; }
+  .loading { display: flex; align-items: center; justify-content: center; height: 100vh; }
+</style>
+</head>
+<body>
+<div class="loading">Loading the editor…</div>
+
+<!-- Load our own JS config (admin/config.js) instead of the config.yml Decap
+     looks for automatically, so base_url can be window.location.origin —
+     see the comment at the top of config.js for why. -->
+<script>window.CMS_MANUAL_INIT = true;</script>
+<script src="config.js"></script>
+<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<script>
+  CMS.init({ config: window.CMS_CONFIG });
+</script>
+</body>
+</html>

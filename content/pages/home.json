@@ -12,7 +12,9 @@
       "Runs August through mid-June alongside the school calendar",
       "One-on-one attention, in person or online",
       "Monday through Friday availability"
-    ]
+    ],
+    "image": "/assets/images/services/homework.jpg",
+    "imageAlt": "Students working through homework with an instructor"
   },
   "testimonials": {
     "eyebrow": "Testimonials",
@@ -20,9 +22,21 @@
     "lead": "Families across the San Gabriel Valley have trusted us with their children for three decades."
   },
   "stats": [
-    { "number": "1991", "label": "Founded in the San Gabriel Valley" },
-    { "number": "20+", "label": "Years of college counseling" },
-    { "number": "15", "label": "Instructors across every core subject" },
-    { "number": "26", "label": "Top universities our students attend" }
+    {
+      "number": "1991",
+      "label": "Founded in the San Gabriel Valley"
+    },
+    {
+      "number": "20+",
+      "label": "Years of college counseling"
+    },
+    {
+      "number": "15",
+      "label": "Instructors across every core subject"
+    },
+    {
+      "number": "26",
+      "label": "Top universities our students attend"
+    }
   ]
 }

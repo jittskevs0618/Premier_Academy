@@ -1,10 +1,22 @@
 {
-  "hero": { "title": "Homework Assistance", "lead": "After school support that runs in parallel with the school year." },
+  "hero": {
+    "title": "Homework Assistance",
+    "lead": "After school support that runs in parallel with the school year."
+  },
   "intro": {
     "lead": "Our after school homework assistance program runs from August through mid-June, following the school calendar so students have support on every day they have work due.",
     "body": "Sessions are one-on-one and can be taken in person at our San Gabriel campus or online from home.",
-    "ticks": ["August through mid-June, parallel to the school year", "One-on-one, in person or online", "Monday through Friday availability"],
-    "ctaLabel": "Enroll your student"
+    "ticks": [
+      "August through mid-June, parallel to the school year",
+      "One-on-one, in person or online",
+      "Monday through Friday availability"
+    ],
+    "ctaLabel": "Enroll your student",
+    "image": "/assets/images/services/homework.jpg",
+    "imageAlt": "Students completing homework with instructor support"
   },
-  "cta": { "title": "Questions about scheduling?", "buttonLabel": "Contact Us" }
+  "cta": {
+    "title": "Questions about scheduling?",
+    "buttonLabel": "Contact Us"
+  }
 }

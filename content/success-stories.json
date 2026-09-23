@@ -1,68 +1,70 @@
-[
-  {
-    "name": "Albert",
-    "school": "Georgetown University",
-    "logo": "/assets/images/colleges/georgetown.jpg",
-    "text": "Credits Premier Academy for the assistance that helped secure his entrance to Georgetown."
-  },
-  {
-    "name": "Jonathan",
-    "school": "New York University",
-    "logo": "/assets/images/colleges/nyu.png",
-    "text": "Grateful for the guidance and mentoring he received throughout all four years of high school."
-  },
-  {
-    "name": "Wesley",
-    "school": "UC Berkeley",
-    "logo": "/assets/images/colleges/uc-berkeley.png",
-    "text": "Junior-year guidance, SAT planning and essay writing support carried him through to Berkeley."
-  },
-  {
-    "name": "Patrick",
-    "school": "UC Berkeley",
-    "logo": "/assets/images/colleges/uc-berkeley.png",
-    "text": "The customized guidance he received here was second to none."
-  },
-  {
-    "name": "Mary",
-    "school": "Otis College of Art and Design",
-    "logo": "/assets/images/colleges/otis.jpg",
-    "text": "The counselors here are very encouraging and responsible."
-  },
-  {
-    "name": "Yiwei",
-    "school": "Indiana University",
-    "logo": "/assets/images/colleges/indiana.jpg",
-    "text": "English tutoring, Statistics, AP Environmental Science and private SAT tutoring built the whole application."
-  },
-  {
-    "name": "Yoitsu",
-    "school": "UC Berkeley (full scholarship)",
-    "logo": "/assets/images/colleges/uc-berkeley.png",
-    "text": "Also accepted to USC, the University of Chicago, Emory and others — a full sweep of top-school offers."
-  },
-  {
-    "name": "John",
-    "school": "University of Illinois",
-    "logo": "/assets/images/colleges/illinois.png",
-    "text": "Arrived from Shanghai with minimal English and received the transition support to thrive here."
-  },
-  {
-    "name": "Shike",
-    "school": "UC San Diego",
-    "logo": "/assets/images/colleges/uc-san-diego.jpg",
-    "text": "A student from China whose overall application the Academy helped strengthen and shape."
-  },
-  {
-    "name": "Cyrus",
-    "school": "USC (near-full scholarship)",
-    "logo": "/assets/images/colleges/usc.png",
-    "text": "Also accepted to UC San Diego, NYU and Carnegie Mellon, with multiple scholarship offers."
-  },
-  {
-    "name": "Ming",
-    "school": "UC System (transfer)",
-    "logo": "/assets/images/colleges/uc-berkeley.png",
-    "text": "Transitioned successfully from Glendale Community College into the UC system."
-  }
-]
+{
+  "items": [
+    {
+      "name": "Albert",
+      "school": "Georgetown University",
+      "logo": "/assets/images/colleges/georgetown.jpg",
+      "text": "Credits Premier Academy for the assistance that helped secure his entrance to Georgetown."
+    },
+    {
+      "name": "Jonathan",
+      "school": "New York University",
+      "logo": "/assets/images/colleges/nyu.png",
+      "text": "Grateful for the guidance and mentoring he received throughout all four years of high school."
+    },
+    {
+      "name": "Wesley",
+      "school": "UC Berkeley",
+      "logo": "/assets/images/colleges/uc-berkeley.png",
+      "text": "Junior-year guidance, SAT planning and essay writing support carried him through to Berkeley."
+    },
+    {
+      "name": "Patrick",
+      "school": "UC Berkeley",
+      "logo": "/assets/images/colleges/uc-berkeley.png",
+      "text": "The customized guidance he received here was second to none."
+    },
+    {
+      "name": "Mary",
+      "school": "Otis College of Art and Design",
+      "logo": "/assets/images/colleges/otis.jpg",
+      "text": "The counselors here are very encouraging and responsible."
+    },
+    {
+      "name": "Yiwei",
+      "school": "Indiana University",
+      "logo": "/assets/images/colleges/indiana.jpg",
+      "text": "English tutoring, Statistics, AP Environmental Science and private SAT tutoring built the whole application."
+    },
+    {
+      "name": "Yoitsu",
+      "school": "UC Berkeley (full scholarship)",
+      "logo": "/assets/images/colleges/uc-berkeley.png",
+      "text": "Also accepted to USC, the University of Chicago, Emory and others — a full sweep of top-school offers."
+    },
+    {
+      "name": "John",
+      "school": "University of Illinois",
+      "logo": "/assets/images/colleges/illinois.png",
+      "text": "Arrived from Shanghai with minimal English and received the transition support to thrive here."
+    },
+    {
+      "name": "Shike",
+      "school": "UC San Diego",
+      "logo": "/assets/images/colleges/uc-san-diego.jpg",
+      "text": "A student from China whose overall application the Academy helped strengthen and shape."
+    },
+    {
+      "name": "Cyrus",
+      "school": "USC (near-full scholarship)",
+      "logo": "/assets/images/colleges/usc.png",
+      "text": "Also accepted to UC San Diego, NYU and Carnegie Mellon, with multiple scholarship offers."
+    },
+    {
+      "name": "Ming",
+      "school": "UC System (transfer)",
+      "logo": "/assets/images/colleges/uc-berkeley.png",
+      "text": "Transitioned successfully from Glendale Community College into the UC system."
+    }
+  ]
+}

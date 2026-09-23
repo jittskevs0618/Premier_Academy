@@ -1,21 +1,23 @@
-[
-  "Chinese Language",
-  "Calculus AB",
-  "Calculus BC",
-  "Chemistry",
-  "Biology",
-  "Environmental Science",
-  "Physics 1",
-  "Physics 2",
-  "English Literature and Composition",
-  "English Language and Composition",
-  "Statistics",
-  "US Government and Politics",
-  "US History",
-  "World History",
-  "Microeconomics",
-  "Macroeconomics",
-  "Art History",
-  "European History",
-  "Music Theory"
-]
+{
+  "items": [
+    "Chinese Language",
+    "Calculus AB",
+    "Calculus BC",
+    "Chemistry",
+    "Biology",
+    "Environmental Science",
+    "Physics 1",
+    "Physics 2",
+    "English Literature and Composition",
+    "English Language and Composition",
+    "Statistics",
+    "US Government and Politics",
+    "US History",
+    "World History",
+    "Microeconomics",
+    "Macroeconomics",
+    "Art History",
+    "European History",
+    "Music Theory"
+  ]
+}

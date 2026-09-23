@@ -1,110 +1,112 @@
-[
-  {
-    "src": "/assets/images/gallery/gallery-01.jpg",
-    "alt": "Students collaborating in class"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-02.jpg",
-    "alt": "After school homework session"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-03.jpg",
-    "alt": "Student at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-04.jpg",
-    "alt": "Summer program group outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-05.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-06.jpg",
-    "alt": "Classroom activity"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-07.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-08.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-09.jpg",
-    "alt": "Class in session"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-10.jpg",
-    "alt": "Academy event"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-11.jpg",
-    "alt": "Academy event"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-12.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-13.jpg",
-    "alt": "Evening class"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-14.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-15.jpg",
-    "alt": "Students at Premier Academy"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-16.jpg",
-    "alt": "Evening class"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-17.jpg",
-    "alt": "Student outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-18.jpg",
-    "alt": "Student outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-19.jpg",
-    "alt": "Student outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-20.jpg",
-    "alt": "Academy event"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-21.jpg",
-    "alt": "Campus visit to UCLA"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-22.jpg",
-    "alt": "Campus visit to Stanford"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-23.jpg",
-    "alt": "Birthday celebration — elementary group class"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-24.jpg",
-    "alt": "Ice skating outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-25.jpg",
-    "alt": "Inside a Premier Academy classroom"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-26.jpg",
-    "alt": "Student outing"
-  },
-  {
-    "src": "/assets/images/gallery/gallery-27.jpg",
-    "alt": "Knott's Berry Farm trip"
-  }
-]
+{
+  "items": [
+    {
+      "src": "/assets/images/gallery/gallery-01.jpg",
+      "alt": "Students collaborating in class"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-02.jpg",
+      "alt": "After school homework session"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-03.jpg",
+      "alt": "Student at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-04.jpg",
+      "alt": "Summer program group outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-05.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-06.jpg",
+      "alt": "Classroom activity"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-07.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-08.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-09.jpg",
+      "alt": "Class in session"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-10.jpg",
+      "alt": "Academy event"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-11.jpg",
+      "alt": "Academy event"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-12.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-13.jpg",
+      "alt": "Evening class"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-14.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-15.jpg",
+      "alt": "Students at Premier Academy"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-16.jpg",
+      "alt": "Evening class"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-17.jpg",
+      "alt": "Student outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-18.jpg",
+      "alt": "Student outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-19.jpg",
+      "alt": "Student outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-20.jpg",
+      "alt": "Academy event"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-21.jpg",
+      "alt": "Campus visit to UCLA"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-22.jpg",
+      "alt": "Campus visit to Stanford"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-23.jpg",
+      "alt": "Birthday celebration — elementary group class"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-24.jpg",
+      "alt": "Ice skating outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-25.jpg",
+      "alt": "Inside a Premier Academy classroom"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-26.jpg",
+      "alt": "Student outing"
+    },
+    {
+      "src": "/assets/images/gallery/gallery-27.jpg",
+      "alt": "Knott's Berry Farm trip"
+    }
+  ]
+}

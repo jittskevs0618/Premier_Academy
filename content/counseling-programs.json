@@ -1,30 +1,32 @@
-[
-  {
-    "title": "Curriculum Planning & Extracurricular Guidance",
-    "text": "Course selection year by year, extracurricular recommendations that build a coherent profile, planning calendars, and ongoing admissions updates."
-  },
-  {
-    "title": "College Major & Career Search",
-    "text": "Personal assessments, exploration of 300+ courses of study, and career information including income and job-growth forecasts."
-  },
-  {
-    "title": "College Search, Selection & Admission",
-    "text": "Transcript, GPA and SAT evaluation; search criteria; reach/match/safety recommendations; and hands-on application support."
-  },
-  {
-    "title": "College Essays",
-    "text": "Writing guidance with up to two edits per essay, assistance up to 21 days before deadlines, and a focus on grammar, structure and authenticity."
-  },
-  {
-    "title": "College Interviews",
-    "text": "Interview preparation and coaching, including mock interviews and feedback on presentation and content."
-  },
-  {
-    "title": "Financial Aid",
-    "text": "Scholarship eligibility review, FAFSA and CSS PROFILE guidance, and a combined merit and need-based strategy."
-  },
-  {
-    "title": "Private Scholarship Searches",
-    "text": "Individualized identification of private scholarships and grants matched to each student’s profile."
-  }
-]
+{
+  "items": [
+    {
+      "title": "Curriculum Planning & Extracurricular Guidance",
+      "text": "Course selection year by year, extracurricular recommendations that build a coherent profile, planning calendars, and ongoing admissions updates."
+    },
+    {
+      "title": "College Major & Career Search",
+      "text": "Personal assessments, exploration of 300+ courses of study, and career information including income and job-growth forecasts."
+    },
+    {
+      "title": "College Search, Selection & Admission",
+      "text": "Transcript, GPA and SAT evaluation; search criteria; reach/match/safety recommendations; and hands-on application support."
+    },
+    {
+      "title": "College Essays",
+      "text": "Writing guidance with up to two edits per essay, assistance up to 21 days before deadlines, and a focus on grammar, structure and authenticity."
+    },
+    {
+      "title": "College Interviews",
+      "text": "Interview preparation and coaching, including mock interviews and feedback on presentation and content."
+    },
+    {
+      "title": "Financial Aid",
+      "text": "Scholarship eligibility review, FAFSA and CSS PROFILE guidance, and a combined merit and need-based strategy."
+    },
+    {
+      "title": "Private Scholarship Searches",
+      "text": "Individualized identification of private scholarships and grants matched to each student’s profile."
+    }
+  ]
+}

@@ -1,67 +1,69 @@
-[
-  {
-    "name": "Sydney Wuu",
-    "grade": "5th",
-    "school": "High Point Academy"
-  },
-  {
-    "name": "David Lin",
-    "grade": "5th",
-    "school": "Arcadia"
-  },
-  {
-    "name": "Fred Chen",
-    "grade": "5th",
-    "school": "Clairbourne School"
-  },
-  {
-    "name": "Madison Liu",
-    "grade": "7th",
-    "school": "Huntington Middle School"
-  },
-  {
-    "name": "Justin Campbell",
-    "grade": "9th",
-    "school": "Temple City High School"
-  },
-  {
-    "name": "Edwin Tong",
-    "grade": "10th",
-    "school": "Mark Keppel High School"
-  },
-  {
-    "name": "William Luochen",
-    "grade": "10th",
-    "school": "Gabrielino High School"
-  },
-  {
-    "name": "Carol Kang",
-    "grade": "10th",
-    "school": "Flintridge Prep"
-  },
-  {
-    "name": "Emily Wu",
-    "grade": "11th",
-    "school": "San Marino High School"
-  },
-  {
-    "name": "Kitty Lin",
-    "grade": "12th",
-    "school": "Mark Keppel"
-  },
-  {
-    "name": "Jeffery Lin",
-    "grade": "12th",
-    "school": "San Gabriel High School"
-  },
-  {
-    "name": "Yoitsu Kamijo",
-    "grade": "12th",
-    "school": "Arcadia High School"
-  },
-  {
-    "name": "Cyrus Jia",
-    "grade": "12th",
-    "school": "Arcadia High School"
-  }
-]
+{
+  "items": [
+    {
+      "name": "Sydney Wuu",
+      "grade": "5th",
+      "school": "High Point Academy"
+    },
+    {
+      "name": "David Lin",
+      "grade": "5th",
+      "school": "Arcadia"
+    },
+    {
+      "name": "Fred Chen",
+      "grade": "5th",
+      "school": "Clairbourne School"
+    },
+    {
+      "name": "Madison Liu",
+      "grade": "7th",
+      "school": "Huntington Middle School"
+    },
+    {
+      "name": "Justin Campbell",
+      "grade": "9th",
+      "school": "Temple City High School"
+    },
+    {
+      "name": "Edwin Tong",
+      "grade": "10th",
+      "school": "Mark Keppel High School"
+    },
+    {
+      "name": "William Luochen",
+      "grade": "10th",
+      "school": "Gabrielino High School"
+    },
+    {
+      "name": "Carol Kang",
+      "grade": "10th",
+      "school": "Flintridge Prep"
+    },
+    {
+      "name": "Emily Wu",
+      "grade": "11th",
+      "school": "San Marino High School"
+    },
+    {
+      "name": "Kitty Lin",
+      "grade": "12th",
+      "school": "Mark Keppel"
+    },
+    {
+      "name": "Jeffery Lin",
+      "grade": "12th",
+      "school": "San Gabriel High School"
+    },
+    {
+      "name": "Yoitsu Kamijo",
+      "grade": "12th",
+      "school": "Arcadia High School"
+    },
+    {
+      "name": "Cyrus Jia",
+      "grade": "12th",
+      "school": "Arcadia High School"
+    }
+  ]
+}

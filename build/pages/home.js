@@ -6,7 +6,7 @@ const { services, testimonials } = require('../data');
 
 // content/hero-slides.json and content/pages/home.json — both edited via the
 // CMS at /admin/.
-const slides = require('../../content/hero-slides.json').map((s) => ({
+const slides = require('../../content/hero-slides.json').items.map((s) => ({
   image: s.image,
   eyebrow: s.eyebrow.replace('{founded}', site.founded),
   title: s.title,
@@ -87,7 +87,7 @@ ${section({
   <div class="container">
     <div class="split">
       <div class="split__media">
-        <img class="rounded" src="${rel('/assets/images/services/homework.jpg', depth)}" alt="Students working through homework with an instructor" width="640" height="460" loading="lazy">
+        <img class="rounded" src="${rel(content.homework.image, depth)}" alt="${content.homework.imageAlt}" width="640" height="460" loading="lazy">
       </div>
       <div class="split__body">
         <p class="eyebrow">${content.homework.eyebrow}</p>
