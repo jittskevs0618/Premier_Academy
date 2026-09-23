@@ -4,6 +4,8 @@
 // popup, using the exact postMessage protocol Decap CMS's OAuth client
 // listens for. See auth.js for the first half of this flow.
 
+const { verifyState } = require('./_state');
+
 module.exports = async (req, res) => {
   const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
   const clientSecret = process.env.GITHUB_OAUTH_CLIENT_SECRET;
@@ -28,13 +30,8 @@ module.exports = async (req, res) => {
   const url = new URL(req.url, `https://${req.headers.host}`);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
-  const cookieState = (req.headers.cookie || '')
-    .split(';')
-    .map((c) => c.trim())
-    .find((c) => c.startsWith('decap_oauth_state='))
-    ?.split('=')[1];
 
-  if (!code || !state || state !== cookieState) {
+  if (!code || !verifyState(clientSecret, state)) {
     res.status(400).send(html(post('authorization:github:error:state mismatch')));
     return;
   }
@@ -57,7 +54,6 @@ module.exports = async (req, res) => {
     }
 
     const message = `authorization:github:success:${JSON.stringify({ token: data.access_token, provider: 'github' })}`;
-    res.setHeader('Set-Cookie', 'decap_oauth_state=; Path=/; Max-Age=0');
     res.status(200).send(html(post(message)));
   } catch (err) {
     res.status(500).send(html(post(`authorization:github:error:${String(err.message || err)}`)));

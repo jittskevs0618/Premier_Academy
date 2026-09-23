@@ -11,9 +11,13 @@
 // a token and hands it back to the opener window. See callback.js for the
 // second half.
 
+const crypto = require('crypto');
+const { signState } = require('./_state');
+
 module.exports = (req, res) => {
   const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
-  if (!clientId) {
+  const clientSecret = process.env.GITHUB_OAUTH_CLIENT_SECRET;
+  if (!clientId || !clientSecret) {
     res.status(500).send('Missing GITHUB_OAUTH_CLIENT_ID environment variable.');
     return;
   }
@@ -22,13 +26,16 @@ module.exports = (req, res) => {
   const protocol = req.headers['x-forwarded-proto'] || 'https';
   const redirectUri = `${protocol}://${host}/api/callback`;
 
-  // A random state, checked again in callback.js, so a third party can't feed
-  // the callback a code that didn't originate from this login attempt.
-  const state = Math.random().toString(36).slice(2) + Date.now().toString(36);
-  res.setHeader(
-    'Set-Cookie',
-    `decap_oauth_state=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`
-  );
+  // The state passed to GitHub is self-verifying (timestamp + nonce, signed
+  // with the client secret) instead of a value stashed in a cookie and
+  // compared on the way back. A cookie set immediately before redirecting to
+  // another site is exactly the pattern several browsers' anti-tracking
+  // protections (Safari ITP, Brave Shields, and others) are designed to
+  // drop or shorten — which broke real logins here. Signing the state
+  // itself means callback.js can verify it came from us without needing
+  // anything to have survived the round trip.
+  const nonce = crypto.randomBytes(16).toString('base64url');
+  const state = signState(clientSecret, nonce);
 
   const authorizeUrl = new URL('https://github.com/login/oauth/authorize');
   authorizeUrl.searchParams.set('client_id', clientId);
