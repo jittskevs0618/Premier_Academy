@@ -102,37 +102,50 @@ placeholders. Until you replace them, submitting shows an explanatory error rath
 silently failing. Sign up with Formspree, Web3Forms or Netlify Forms, paste the real URLs
 in, and rebuild. A honeypot field (`_gotcha`) replaces the old CAPTCHA on both forms.
 
-### 2. The Chinese site — decision needed
+### 2. The Chinese site — built
 
-**The live site serves a Chinese version at `/zh/` that this rebuild does not cover.** The
-language toggle probes the URL before navigating, so nobody hits a 404 — but until `/zh/`
-exists on the new host, Chinese-speaking visitors get a "coming soon" message instead of
-the site they have today.
+**A full `/zh/` tree now exists**, generated the same way the English site is, from the
+same page templates. Every page, every redirect, every asset path has a Chinese
+counterpart. This replaces the live site's TranslatePress plugin (which stored the
+translation in the database, not as separate pages — see below for why that approach
+wasn't repeated).
 
-What it actually is, measured rather than assumed:
+**How it works:**
 
-- Rendered by the **TranslatePress** plugin, not separate pages. Zero of the 66 WordPress
-  pages live under `/zh/`, so there is nothing to export — the translations sit in the
-  database and die with the instance.
-- **Human-written, not machine output.** The homepage is 84% Chinese and reads naturally,
-  using the brand's own name, 培名学院.
-- **Partial coverage.** Across 29 pages the mean is 56% Chinese: 14 pages are well
-  translated (>60%), 7 partial, and 8 barely touched — the legal pages and job listing are
-  genuinely untranslated, while the teacher and honor-roll pages score low only because
-  they are mostly proper nouns.
+- `content/i18n/zh.json` is a dictionary: English string → Chinese string, 700 entries
+  covering everything on the site.
+- `content/i18n/keep.json` lists the 79 strings deliberately left in Latin script — people's
+  names, local school names, academic credentials (`B.S. UCLA`), and technical tokens
+  (`STOP`, `collegeboard.org`) that Chinese readers expect to see as-is.
+- The build renders the English pages once, then re-renders them per locale by swapping
+  translatable text (`build/i18n.js`). Tags, URLs, classes and scripts are never touched —
+  only text nodes and a small set of attributes (`alt`, `title`, `placeholder`,
+  `aria-label`, and prose `<meta>` tags).
+- `npm run strings` regenerates the source inventory at `content/i18n/strings.json`
+  whenever English copy changes; the build reports any string missing from the dictionary
+  instead of silently shipping English text on a Chinese page.
 
-**Already preserved for you**, so the decision is not urgent and nothing is lost at
-shutdown:
+**Why a dictionary instead of duplicating the page templates in Chinese:** editing a
+sentence once in `build/pages/*.js` updates both languages, structure only has to be
+maintained in one place, and the two sites can never drift into showing different
+information — only different words for the same information.
 
-- `premier-assets/html-zh/` — all 29 rendered Chinese pages (gitignored, local only)
-- `content/zh-content.json` — 403 translated blocks extracted and committed to the repo
+**Terminology** follows the live site's own established Chinese where it existed —
+`培名学院` for the Academy's name, `个人家教` for tutoring, `光荣榜` for the honor roll — pulled
+from the archived `/zh/` pages before checking each string. University names use their
+standard Chinese translations (哈佛大学, 斯坦福大学, …) rather than transliteration.
 
-Re-run either with `npm run fetch-assets` then `npm run extract-zh`.
+**What was deliberately not carried over:** the live TranslatePress translation is only
+56% complete on average across its 29 pages (measured, not assumed — see
+`content/zh-content.json` for the archived original if you want to compare). This build's
+translation is complete on every page, but it is a fresh, independent translation of the
+English copy — not a continuation of the live site's partial one. If your team has
+Chinese-fluent staff, a review pass before launch is worth doing; the dictionary format
+(`content/i18n/zh.json`) makes spot-editing any string straightforward.
 
-The options, roughly ascending in effort: accept the regression and drop the toggle; keep
-the toggle pointing at a later build; or generate a `/zh/` tree from `zh-content.json`,
-which is the same shape of work as the English build and needs a Chinese speaker to fill
-the eight thin pages.
+The original archived Chinese content is still preserved if useful for comparison:
+`premier-assets/html-zh/` (gitignored, local only) and `content/zh-content.json`
+(committed) — see `npm run fetch-assets` and `npm run extract-zh`.
 
 ### 3. Pages that exist on WordPress but are not in this build
 
@@ -144,7 +157,8 @@ live but its content is stale (2016 SAT dates) and it redirects to the SAT/ACT p
 
 ## What is built
 
-25 pages, matching the live navigation exactly:
+50 pages — 25 in English at the repo root, 25 in Chinese under `/zh/` — matching the
+live navigation exactly:
 
 - Home, with a 3-slide hero carousel (CSS + vanilla JS, no Slider Revolution)
 - About: overview, Director's message, testimonials, honor roll, news/press, gallery,
@@ -190,7 +204,7 @@ verified locally — run `npm run smoke -- <url>` after any deploy that touches
 ### Launch checklist
 
 - [ ] Form endpoints set in `build/site.js`, and a test submission received
-- [ ] Decision made on the `/zh/` Chinese site (content already archived — see above)
+- [ ] Chinese translation reviewed by a fluent speaker (see "The Chinese site" above)
 - [ ] `npm run check` and `npm run test` green
 - [ ] `npm run smoke -- https://premier-academy.com` green after DNS cutover
 - [ ] SSL configured, DNS pointed at the new host
@@ -209,6 +223,7 @@ verified locally — run `npm run smoke -- <url>` after any deploy that touches
 | `npm run assets` | Regenerates the web-ready images from `premier-assets/raw` |
 | `npm run smoke -- <url>` | Post-deploy check against a live host: every page, every legacy redirect, key assets, and 404 handling |
 | `npm run extract-zh` | Rebuilds `content/zh-content.json` from the archived `/zh/` pages |
+| `npm run strings` | Rebuilds `content/i18n/strings.json`, the source inventory for translation |
 
 The harnesses in `scripts/` are ordinary HTML pages — open them in a real browser against
 a running server to debug interactively:

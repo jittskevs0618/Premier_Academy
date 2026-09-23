@@ -254,7 +254,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
     opacity: 0; visibility: hidden; transform: translateY(8px);
     transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
   }
-  .nav__item:last-child .nav__dropdown, .nav__item:nth-last-child(2) .nav__dropdown { left: auto; right: 0; }
+  /* Which dropdown needs right-alignment depends on label width, which varies
+     by locale — handled in JS (main.js) rather than guessed here by position. */
+  .nav__item.overflow-right .nav__dropdown,
+  .nav__subitem--parent.overflow-right .nav__flyout { left: auto; right: 0; }
+  .nav__subitem--parent.overflow-right .nav__flyout { right: 100%; }
   .nav__item--has-children:hover > .nav__dropdown,
   .nav__item--has-children:focus-within > .nav__dropdown {
     opacity: 1; visibility: visible; transform: translateY(0);

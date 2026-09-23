@@ -1,146 +1,387 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://premier-academy.com/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/message-from-director.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/message-from-director.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/message-from-director.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/message-from-director.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/message-from-director.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/message-from-director.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/testimonials.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/testimonials.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/testimonials.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/testimonials.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/testimonials.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/testimonials.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/honor-roll.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/honor-roll.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/honor-roll.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/honor-roll.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/honor-roll.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/honor-roll.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/news-press.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/news-press.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/news-press.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/news-press.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/news-press.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/news-press.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/gallery.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/gallery.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/gallery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/gallery.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/faculty/teachers.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/faculty/teachers.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/faculty/teachers.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/faculty/teachers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/faculty/teachers.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/faculty/teachers.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/about/faculty/job-opportunities.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/faculty/job-opportunities.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/faculty/job-opportunities.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/about/faculty/job-opportunities.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/about/faculty/job-opportunities.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/about/faculty/job-opportunities.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/private-tutoring/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/private-tutoring/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/private-tutoring/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/private-tutoring/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/private-tutoring/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/private-tutoring/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/college-counseling/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/college-counseling/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/college-counseling/success-stories.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/success-stories.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/success-stories.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/college-counseling/success-stories.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/success-stories.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/success-stories.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/college-counseling/top-colleges.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/top-colleges.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/top-colleges.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/college-counseling/top-colleges.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/top-colleges.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/top-colleges.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/college-counseling/transfer.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/transfer.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/transfer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/college-counseling/transfer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/college-counseling/transfer.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/college-counseling/transfer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/sat-act.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/sat-act.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/sat-act.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/sat-act.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/sat-act.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/sat-act.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/advance-placement-ap.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/advance-placement-ap.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/advance-placement-ap.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/advance-placement-ap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/advance-placement-ap.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/advance-placement-ap.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/study-abroad.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/study-abroad.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/study-abroad.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/study-abroad.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/study-abroad.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/study-abroad.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/summer-winter-programs.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/summer-winter-programs.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/summer-winter-programs.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/summer-winter-programs.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/summer-winter-programs.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/summer-winter-programs.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/homework-assistance.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/homework-assistance.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/homework-assistance.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/homework-assistance.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/homework-assistance.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/homework-assistance.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/services/payment-options.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/payment-options.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/payment-options.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/services/payment-options.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/services/payment-options.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/services/payment-options.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/partners/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/partners/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/partners/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/partners/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/partners/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/contact/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/contact/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/contact/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/privacy-policy.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/privacy-policy.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/privacy-policy.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://premier-academy.com/terms-conditions.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/terms-conditions.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/terms-conditions.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://premier-academy.com/zh/terms-conditions.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://premier-academy.com/terms-conditions.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://premier-academy.com/zh/terms-conditions.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

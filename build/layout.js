@@ -1,16 +1,53 @@
 // Page shell: <head>, skip link, header + nav, footer, GTM.
 // Pages supply only their <main> content; everything shared lives here.
 
+const { posix } = require('path');
 const { site } = require('./site');
 const { nav, footerLinks } = require('./nav');
 const { icons } = require('./icons');
 
-/** Site-root URL -> path relative to a page `depth` directories below the root. */
+// The build renders one locale at a time; rel() prefixes page links with the
+// locale directory so the Chinese site links to Chinese pages.
+let currentLocale = 'en';
+const setLocale = (l) => { currentLocale = l; };
+const getLocale = () => currentLocale;
+
+// css/js/assets are shared by every locale and never get the prefix.
+const SHARED_PATH = /^\/(css|js|assets)\//;
+
+// Set per page so links can be resolved from the page's own directory rather
+// than from the site root — otherwise a Chinese page links to "../zh/about/"
+// instead of the equivalent, shorter "about/".
+let currentOut = '';
+const setOutputPath = (out) => { currentOut = out; };
+
+/** Site-root URL -> a clean path relative to the page being rendered. */
 function rel(url, depth) {
   let target = url === '/' ? 'index.html' : url.replace(/^\//, '');
   if (target.endsWith('/')) target += 'index.html';
-  return depth === 0 ? target : '../'.repeat(depth) + target;
+  if (currentLocale !== 'en' && !SHARED_PATH.test(url)) {
+    target = `${currentLocale}/${target}`;
+  }
+  if (!currentOut) return depth === 0 ? target : '../'.repeat(depth) + target;
+
+  const fromDir = posix.dirname(currentOut);
+  const out = posix.relative(fromDir === '.' ? '' : fromDir, target);
+  return out || posix.basename(target);
 }
+
+/** Resolve a site-root path verbatim, without adding a locale prefix. */
+function relRaw(url, depth) {
+  let target = url === '/' ? 'index.html' : url.replace(/^\//, '');
+  if (target.endsWith('/')) target += 'index.html';
+  if (!currentOut) return depth === 0 ? target : '../'.repeat(depth) + target;
+  const fromDir = posix.dirname(currentOut);
+  const out = posix.relative(fromDir === '.' ? '' : fromDir, target);
+  return out || posix.basename(target);
+}
+
+/** The same page in the other locale, as a site-root path. */
+const otherLocaleUrl = (url, locale) =>
+  locale === 'en' ? url : `/${locale}${url === '/' ? '/' : url}`;
 
 const isActive = (item, current) =>
   item.url === current ||
@@ -51,11 +88,25 @@ function navItem(item, current, depth) {
         </li>`;
 }
 
-/** Language toggle. Rendered twice: `topbar` shows at >=992px, `nav` below it. */
-function langSwitch(place) {
+/**
+ * Language toggle. Rendered twice: `topbar` shows at >=992px, `nav` below it.
+ * Real links rather than buttons, so it works without JS and search engines
+ * can follow it to the other locale.
+ */
+function langSwitch(place, url, depth) {
+  const here = currentLocale;
+  const link = (locale, label) => {
+    const active = locale === here ? ' is-active' : '';
+    const target = locale === here
+      ? '#'
+      : relRaw(otherLocaleUrl(url, locale), depth);
+    return `<a class="langswitch__btn${active}" href="${target}" hreflang="${locale === 'en' ? 'en' : 'zh-Hans'}"${
+      locale === here ? ' aria-current="true"' : ''
+    } data-lang="${locale}">${label}</a>`;
+  };
   return `<div class="langswitch langswitch--${place}" role="group" aria-label="Language">
-          <button class="langswitch__btn is-active" type="button" data-lang="en">EN</button>
-          <button class="langswitch__btn" type="button" data-lang="zh">简体中文</button>
+          ${link('en', 'EN')}
+          ${link('zh', '简体中文')}
         </div>`;
 }
 
@@ -67,7 +118,7 @@ function header(current, depth) {
       <a class="topbar__link topbar__link--hide-sm" href="mailto:${site.email}">${icons.mail({ size: 16 })}<span>${site.email}</span></a>
       <span class="topbar__spacer"></span>
       <span class="topbar__link topbar__link--hide-sm">${icons.clock({ size: 16 })}<span>Mon–Fri 10AM–7PM · Sat 10AM–5PM</span></span>
-      ${langSwitch('topbar')}
+      ${langSwitch('topbar', current, depth)}
     </div>
   </div>
 
@@ -89,7 +140,7 @@ function header(current, depth) {
         ${nav.map((item) => navItem(item, current, depth)).join('\n        ')}
       </ul>
       <div class="nav__actions">
-        ${langSwitch('nav')}
+        ${langSwitch('nav', current, depth)}
         <a class="btn btn--accent btn--sm nav__cta" href="${rel('/contact/', depth)}">Free Consultation</a>
       </div>
     </nav>
@@ -168,23 +219,35 @@ function wave(variant = 'light', flip = false) {
   </div>`;
 }
 
+const LOCALES = { en: { lang: 'en', hreflang: 'en' }, zh: { lang: 'zh-Hans', hreflang: 'zh-Hans' } };
+
 function page({ title, description, url, body, depth, bodyClass = '', extraHead = '' }) {
-  const canonical = site.domain + (url === '/' ? '/' : url);
+  const loc = LOCALES[currentLocale] || LOCALES.en;
+  const canonical = site.domain + otherLocaleUrl(url, currentLocale);
   const ogImage = `${site.domain}/assets/images/og-image.jpg`;
 
+  // Every page declares both locales plus x-default, so search engines serve
+  // the right one and never treat the two as duplicates.
+  const alternates = Object.keys(LOCALES)
+    .map((l) => `<link rel="alternate" hreflang="${LOCALES[l].hreflang}" href="${site.domain}${otherLocaleUrl(url, l)}">`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="${site.domain}${otherLocaleUrl(url, 'en')}">`)
+    .join('\n');
+
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${loc.lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} – ${site.name}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">
+${alternates}
 
 <meta property="og:title" content="${title} – ${site.name}">
 <meta property="og:description" content="${description}">
 <meta property="og:image" content="${ogImage}">
 <meta property="og:url" content="${canonical}">
+<meta property="og:locale" content="${currentLocale === 'zh' ? 'zh_CN' : 'en_US'}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${site.name}">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,4 +285,4 @@ ${footer(depth)}
 `;
 }
 
-module.exports = { page, wave, rel };
+module.exports = { page, wave, rel, setLocale, getLocale, setOutputPath, otherLocaleUrl };

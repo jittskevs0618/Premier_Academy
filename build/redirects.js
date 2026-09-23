@@ -45,12 +45,20 @@ const redirects = [
   ['/terms-and-conditions/', '/terms-conditions.html'],
 ];
 
+// TranslatePress serves the Chinese site at the same slugs under /zh/, so the
+// legacy list above is mirrored rather than duplicated by hand.
+const zhRedirects = redirects
+  .filter(([from]) => from !== '/home/') // '/zh/home/' isn't a real TranslatePress URL
+  .map(([from, to]) => [`/zh${from}`, `/zh${to === '/' ? '/' : to}`]);
+
+const allRedirects = redirects.concat(zhRedirects);
+
 /** Netlify / Cloudflare Pages `_redirects`. */
 function netlify() {
-  const width = Math.max(...redirects.map(([from]) => from.length)) + 2;
+  const width = Math.max(...allRedirects.map(([from]) => from.length)) + 2;
   return (
     '# Legacy WordPress URLs -> static paths\n' +
-    redirects.map(([from, to]) => `${from.padEnd(width)}${to}  301`).join('\n') +
+    allRedirects.map(([from, to]) => `${from.padEnd(width)}${to}  301`).join('\n') +
     '\n\n# WordPress admin and feeds no longer exist\n' +
     '/wp-admin/*   /404.html  404\n' +
     '/wp-login.php /404.html  404\n' +
@@ -76,7 +84,7 @@ function vercel() {
       // Sources keep their trailing slash: with trailingSlash:true Vercel
       // normalises /our-partners to /our-partners/ BEFORE matching redirects,
       // so a slash-less source never matches and the URL 404s instead.
-      redirects: redirects.map(([source, destination]) => ({
+      redirects: allRedirects.map(([source, destination]) => ({
         source,
         destination,
         permanent: true,
@@ -102,7 +110,7 @@ function nginx() {
   return `# Premier Academy — include inside your server { } block.
 # Legacy WordPress URLs -> static paths.
 
-${redirects.map(([from, to]) => `rewrite ^${from.replace(/\/$/, '')}/?$ ${to} permanent;`).join('\n')}
+${allRedirects.map(([from, to]) => `rewrite ^${from.replace(/\/$/, '')}/?$ ${to} permanent;`).join('\n')}
 
 # WordPress endpoints that no longer exist
 location ^~ /wp-admin  { return 404; }
@@ -130,4 +138,4 @@ location ~* \\.(?:css|js)$ {
 `;
 }
 
-module.exports = { redirects, netlify, vercel, nginx };
+module.exports = { redirects, zhRedirects, allRedirects, netlify, vercel, nginx };

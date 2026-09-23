@@ -138,6 +138,30 @@ const click = (el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true, 
   ok(d.querySelector('.nav__item.is-active .nav__link').textContent.trim() === 'Home', 'desktop: current page marked active');
   ok(d.getElementById('year').textContent === String(new Date().getFullYear()), 'footer: copyright year set');
 
+  step('Dropdown viewport fit (narrow desktop widths)');
+  // Translated nav labels run a different length than English ones, so the
+  // item that comes closest to the right edge shifts per locale. This checks
+  // every dropdown and flyout actually opens on-screen at 992px — the
+  // narrowest width the desktop nav renders at — for both locales, rather
+  // than assuming a fixed item position the way a hard-coded CSS rule would.
+  async function assertDropdownsFit(url, label) {
+    const page = await load(url, 992);
+    const pd = page.contentDocument, pw = page.contentWindow;
+    const parents = pd.querySelectorAll('.nav__item--has-children');
+    let checked = 0;
+    parents.forEach((item) => {
+      item.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+      const panel = item.querySelector(':scope > .nav__dropdown');
+      const r = panel.getBoundingClientRect();
+      checked++;
+      ok(r.right <= pw.innerWidth + 1, `${label}: "${item.querySelector('.nav__link').textContent.trim()}" dropdown fits at 992px (right=${Math.round(r.right)}, viewport=${pw.innerWidth})`);
+      item.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+    });
+    ok(checked > 0, `${label}: found dropdowns to check (${checked})`);
+  }
+  await assertDropdownsFit('/', 'EN dropdown');
+  await assertDropdownsFit('/zh/', 'zh dropdown');
+
   const checks = log.filter(l => !l.startsWith('---'));
   const fails = checks.filter(l => l.startsWith('FAIL')).length;
   log.push('', `${checks.length - fails}/${checks.length} passed` + (fails ? `  — ${fails} FAILING` : '  — all green'));

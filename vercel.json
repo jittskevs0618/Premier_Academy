@@ -183,6 +183,181 @@
       "source": "/terms-and-conditions/",
       "destination": "/terms-conditions.html",
       "permanent": true
+    },
+    {
+      "source": "/zh/about-us/",
+      "destination": "/zh/about/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/about-us-2/",
+      "destination": "/zh/about/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/message-from-director/",
+      "destination": "/zh/about/message-from-director.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/testimonials/",
+      "destination": "/zh/about/testimonials.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/honor-roll/",
+      "destination": "/zh/about/honor-roll.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/news-press/",
+      "destination": "/zh/about/news-press.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/gallery-2/",
+      "destination": "/zh/about/gallery.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/gallery/",
+      "destination": "/zh/about/gallery.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/faculty/",
+      "destination": "/zh/about/faculty/teachers.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/teachers/",
+      "destination": "/zh/about/faculty/teachers.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/job-opportunities/",
+      "destination": "/zh/about/faculty/job-opportunities.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/become-a-teacher/",
+      "destination": "/zh/about/faculty/job-opportunities.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/our-programs/",
+      "destination": "/zh/college-counseling/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/about-college-counseling/",
+      "destination": "/zh/college-counseling/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/success-stories-testimonials/",
+      "destination": "/zh/college-counseling/success-stories.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/success-story/",
+      "destination": "/zh/college-counseling/success-stories.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/top-colleges/",
+      "destination": "/zh/college-counseling/top-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/transfer-services/",
+      "destination": "/zh/college-counseling/transfer.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/sat-act/",
+      "destination": "/zh/services/sat-act.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/key-test-dates/",
+      "destination": "/zh/services/sat-act.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/contact-us/advance-placement-ap/",
+      "destination": "/zh/services/advance-placement-ap.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/study-abroad-usa/",
+      "destination": "/zh/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/faq/",
+      "destination": "/zh/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/frequently-asked-questions/",
+      "destination": "/zh/services/study-abroad.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/esl-eld-toefl/",
+      "destination": "/zh/private-tutoring/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/summer-winter-programs/",
+      "destination": "/zh/services/summer-winter-programs.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/homework-assistance/",
+      "destination": "/zh/services/homework-assistance.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/payment-options/",
+      "destination": "/zh/services/payment-options.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/contact-us/payment-options/",
+      "destination": "/zh/services/payment-options.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/our-partners/",
+      "destination": "/zh/partners/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/contact-us/",
+      "destination": "/zh/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/privacy-policy/",
+      "destination": "/zh/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/about-us-2/privacypolicy/",
+      "destination": "/zh/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/terms-conditions/",
+      "destination": "/zh/terms-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/zh/terms-and-conditions/",
+      "destination": "/zh/terms-conditions.html",
+      "permanent": true
     }
   ],
   "headers": [

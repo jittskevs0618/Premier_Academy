@@ -100,6 +100,32 @@
     if (nav && nav.classList.contains('is-open')) closeNav();
   });
 
+  // Desktop dropdowns flip to right-aligned when they would overflow the
+  // viewport. Label width varies by locale (Chinese nav items are often
+  // narrower, English ones longer), so this is measured at open time rather
+  // than guessed from a fixed nth-child position.
+  // `container` gets the class (the CSS rule targets it); `panelSelector`
+  // finds the actual panel to measure, since the class and the geometry live
+  // on different elements.
+  function fitDropdown(container, panelSelector) {
+    var panel = container.querySelector(panelSelector);
+    if (!panel) return;
+    container.classList.remove('overflow-right');
+    var rect = panel.getBoundingClientRect();
+    if (rect.right > window.innerWidth) container.classList.add('overflow-right');
+  }
+
+  $$('.nav__item--has-children').forEach(function (item) {
+    var open = function () { fitDropdown(item, ':scope > .nav__dropdown'); };
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('focusin', open);
+  });
+  $$('.nav__subitem--parent').forEach(function (item) {
+    var open = function () { fitDropdown(item, ':scope > .nav__flyout'); };
+    item.addEventListener('mouseenter', open);
+    item.addEventListener('focusin', open);
+  });
+
   // Header shadow once the page scrolls.
   var header = $('#site-header');
   if (header) {

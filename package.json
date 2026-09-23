@@ -14,7 +14,8 @@
     "test": "bash scripts/run-browser-tests.sh",
     "preview": "echo \"Run: npm run serve, then open http://localhost:3000/scripts/preview.html\"",
     "smoke": "bash scripts/smoke-deploy.sh",
-    "extract-zh": "python3 scripts/extract-zh.py"
+    "extract-zh": "python3 scripts/extract-zh.py",
+    "strings": "node scripts/extract-strings.js"
   },
   "engines": {
     "node": ">=18"

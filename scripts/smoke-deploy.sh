@@ -61,18 +61,26 @@ check() {                       # check <url-path> <expected-final-path>
 
 echo "Smoke-testing $BASE"
 echo
-echo "== pages =="
-for p in / /about/ /about/message-from-director.html /about/testimonials.html \
-         /about/honor-roll.html /about/news-press.html /about/gallery.html \
-         /about/faculty/teachers.html /about/faculty/job-opportunities.html \
-         /private-tutoring/ /college-counseling/ \
-         /college-counseling/success-stories.html /college-counseling/top-colleges.html \
-         /college-counseling/transfer.html /services/sat-act.html \
-         /services/advance-placement-ap.html /services/study-abroad.html \
-         /services/summer-winter-programs.html /services/homework-assistance.html \
-         /services/payment-options.html /partners/ /contact/ \
-         /privacy-policy.html /terms-conditions.html; do
+PAGE_PATHS="/ /about/ /about/message-from-director.html /about/testimonials.html \
+  /about/honor-roll.html /about/news-press.html /about/gallery.html \
+  /about/faculty/teachers.html /about/faculty/job-opportunities.html \
+  /private-tutoring/ /college-counseling/ \
+  /college-counseling/success-stories.html /college-counseling/top-colleges.html \
+  /college-counseling/transfer.html /services/sat-act.html \
+  /services/advance-placement-ap.html /services/study-abroad.html \
+  /services/summer-winter-programs.html /services/homework-assistance.html \
+  /services/payment-options.html /partners/ /contact/ \
+  /privacy-policy.html /terms-conditions.html"
+
+echo "== pages (English) =="
+for p in $PAGE_PATHS; do
   check "$p" "$p"
+done
+
+echo "== pages (Chinese /zh/) =="
+for p in $PAGE_PATHS; do
+  zp="/zh${p}"
+  check "$zp" "$zp"
 done
 
 echo "== legacy WordPress URLs =="
