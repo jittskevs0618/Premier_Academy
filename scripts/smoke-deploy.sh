@@ -130,12 +130,14 @@ if ! echo "$admin_body" | grep -qi 'decap-cms'; then
   echo "  FAIL  /admin/ did not reference the Decap CMS bundle"
   fail=$((fail + 1))
 fi
-# /api/auth redirects to GitHub (302) whether or not OAuth env vars are set
-# correctly; a 500 here means GITHUB_OAUTH_CLIENT_ID is missing in Vercel.
+# /api/auth redirects to GitHub (302) once OAuth env vars are set in Vercel.
+# Follow redirects: trailingSlash:true 308s /api/auth -> /api/auth/ first,
+# which still reaches the function correctly (Vercel matches function routes
+# regardless of a trailing slash) — only the FINAL status is meaningful.
 checked=$((checked + 1))
-auth_code=$(curl -sS -o /dev/null --max-time 25 -w '%{http_code}' "$BASE/api/auth" 2>/dev/null)
+auth_code=$(curl -sSL -o /dev/null --max-time 25 -w '%{http_code}' "$BASE/api/auth" 2>/dev/null)
 if [ "$auth_code" != "302" ]; then
-  echo "  FAIL  /api/auth returned $auth_code, expected 302 (check GITHUB_OAUTH_CLIENT_ID in Vercel)"
+  echo "  FAIL  /api/auth resolved to $auth_code, expected 302 (check GITHUB_OAUTH_CLIENT_ID in Vercel — see CMS_SETUP.md)"
   fail=$((fail + 1))
 fi
 

@@ -16,7 +16,13 @@ window.CMS_CONFIG = {
     // rather than using Netlify's — works on whatever domain the editor is
     // visiting right now, the .vercel.app URL today or premier-academy.com
     // once DNS is switched, with nothing here to update either way.
-    base_url: window.location.origin,
+    //
+    // Decap requests `${base_url}/${auth_endpoint}` (auth_endpoint defaults
+    // to 'auth'), so base_url must already include the /api prefix — without
+    // it Decap opens the login popup at /auth, which doesn't exist, and
+    // login fails with no visible error beyond a blank popup.
+    base_url: window.location.origin + '/api',
+    auth_endpoint: 'auth',
   },
 
   // New/replaced images land here by default; most image fields below point
