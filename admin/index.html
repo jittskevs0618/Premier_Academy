@@ -6,13 +6,17 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Premier Academy — Content Editor</title>
 <style>
-  /* Shown for the instant before Decap's own UI takes over the page. */
+  /* Shown for the instant before Decap's own UI takes over the page.
+     Decap does not replace this element when it mounts — it appends its
+     own UI as new content elsewhere in <body>, so without `position: fixed`
+     and explicit removal below, this placeholder just sits on top and
+     pushes the real login screen out of view, off the bottom of the page. */
   body { margin: 0; font: 15px system-ui, sans-serif; background: #f8f9f8; color: #4a4a58; }
-  .loading { display: flex; align-items: center; justify-content: center; height: 100vh; }
+  .loading { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #f8f9f8; }
 </style>
 </head>
 <body>
-<div class="loading">Loading the editor…</div>
+<div class="loading" id="initial-loading">Loading the editor…</div>
 
 <!-- Load our own JS config (admin/config.js) instead of the config.yml Decap
      looks for automatically, so base_url can be window.location.origin —
@@ -22,6 +26,21 @@
 <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 <script>
   CMS.init({ config: window.CMS_CONFIG });
+
+  // Decap appends its real UI as a new element in <body> instead of
+  // replacing the placeholder above, so remove the placeholder ourselves
+  // the moment anything new shows up alongside it.
+  (function () {
+    var loadingEl = document.getElementById('initial-loading');
+    var initialCount = document.body.children.length;
+    var observer = new MutationObserver(function () {
+      if (document.body.children.length > initialCount) {
+        loadingEl.remove();
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, { childList: true });
+  })();
 </script>
 </body>
 </html>
