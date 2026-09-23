@@ -1,0 +1,10 @@
+{
+  "hero": { "title": "Our Partners", "lead": "Schools and organizations we work with across the United States and China." },
+  "intro": {
+    "lead": "Premier Academy has many partners throughout the United States. These include regular private schools, boarding schools, and host families.",
+    "body": "Premier Academy prides itself on knowing all key admissions personnel at our partner schools, which is a significant factor in successful placement."
+  },
+  "orgs": { "eyebrow": "Partner Organizations", "title": "Who we work with" },
+  "friends": { "eyebrow": "Over Three Decades", "title": "Friends of the Academy", "lead": "Figures from business, science, sport and the arts who have crossed paths with Premier Academy and the Wuu family." },
+  "cta": { "title": "Interested in partnering with us?", "buttonLabel": "Start a Conversation" }
+}

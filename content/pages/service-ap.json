@@ -1,0 +1,10 @@
+{
+  "hero": { "title": "Advance Placement (AP)", "lead": "An official College Board testing center — the majority of our students score 5s and 4s on their AP exams." },
+  "features": [
+    { "title": "Official testing center", "text": "Premier Academy is an official College Board testing center, so students prepare and test in a familiar place." },
+    { "title": "Flexible format", "text": "Online and in person, one-on-one or in small classes — whichever suits the subject and the student." },
+    { "title": "Proven results", "text": "The majority of our students score 5s and 4s on their AP exams." }
+  ],
+  "curriculum": { "eyebrow": "Curriculum", "titleTemplate": "{count} AP subjects", "lead": "Preparation across the sciences, mathematics, humanities, economics and the arts." },
+  "cta": { "title": "Plan your AP year", "text": "We will map which exams to take, and when, against your college list." }
+}

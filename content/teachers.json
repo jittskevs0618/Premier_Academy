@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Mr. Wuu",
+    "degrees": "B.A. Indiana University (MIS, Psychology)",
+    "subjects": "College Counseling"
+  },
+  {
+    "name": "Mr. Evans",
+    "degrees": "M.A. Fuller Seminary; B.A. Houghton College",
+    "subjects": "SAT II English, SAT, AP English, PSAT, College Essay"
+  },
+  {
+    "name": "Mr. Moussawi",
+    "degrees": "BSEE UTA Arlington; M.S. CSLA Physics; Ph.D. UCR Physics",
+    "subjects": "General/AP/College Physics, SAT II"
+  },
+  {
+    "name": "Ms. Wong",
+    "degrees": "B.A. Tunghai University",
+    "subjects": "Chinese, English, Language, Literature, College Essays"
+  },
+  {
+    "name": "Ms. Yang",
+    "degrees": "M.S. & B.S. Oxford University (Mathematics)",
+    "subjects": "Mathematics, AP Statistics, AP Calculus"
+  },
+  {
+    "name": "Mr. Wu",
+    "degrees": "B.S. UCLA",
+    "subjects": "Mathematics, SAT, AP Calculus"
+  },
+  {
+    "name": "Ms. Borzoni",
+    "degrees": "U. of Massachusetts; Jones International University",
+    "subjects": "SAT English, Writing, Reading, PSAT, College Essays"
+  },
+  {
+    "name": "Ms. Takano",
+    "degrees": "M.S. Western University; B.S. U. of San Diego",
+    "subjects": "AP Chemistry, Biology, Math, SAT, Environmental Science"
+  },
+  {
+    "name": "Ms. Wang",
+    "degrees": "B.S. Caltech; M.A. Harvard University",
+    "subjects": "Chemistry, Math, Physics"
+  },
+  {
+    "name": "Mr. Chang",
+    "degrees": "B.S. UC Santa Barbara",
+    "subjects": "Math, English, Homework Help"
+  },
+  {
+    "name": "Mr. Lam",
+    "degrees": "B.S. UC Berkeley",
+    "subjects": "ISEE, SSAT, English, History, SAT"
+  },
+  {
+    "name": "Mr. Jones",
+    "degrees": "B.A. Cal State Northridge",
+    "subjects": "ISEE, SSAT, English, History, SAT"
+  },
+  {
+    "name": "Mr. McGee",
+    "degrees": "B.A. Michigan State University",
+    "subjects": "English, Language, Literature, Western"
+  },
+  {
+    "name": "Mr. Kuykendall",
+    "degrees": "B.A. Occidental College (Philosophy)",
+    "subjects": "ESL, SAT, TOEFL, IELTS, History"
+  },
+  {
+    "name": "Mr. Lac",
+    "degrees": "B.S. UC Davis",
+    "subjects": "Math, Biology, History, SAT II, AP Calculus"
+  }
+]

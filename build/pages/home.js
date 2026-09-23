@@ -4,30 +4,16 @@ const { wave, rel } = require('../layout');
 const { section, cardGrid, quoteGrid, newsletter, ctaBand } = require('../components');
 const { services, testimonials } = require('../data');
 
-const slides = [
-  {
-    image: '/assets/images/hero/hero-1.jpg',
-    eyebrow: `Since ${site.founded} · San Gabriel, CA`,
-    title:
-      'We at Premier Academy offer special academic support with our test prep, college counseling, and private tutoring programs',
-    text: 'A challenging and stimulating learning environment built to develop intellect, self-confidence and discipline.',
-    cta: { label: 'Explore Our Programs', url: '/college-counseling/' },
-  },
-  {
-    image: '/assets/images/hero/hero-2.jpg',
-    eyebrow: 'College Counseling',
-    title: 'Over 20 years sending students to the nation’s top universities',
-    text: 'Curriculum planning, essays, interviews, financial aid and scholarship searches — start with a free one-hour session.',
-    cta: { label: 'Book a Free Session', url: '/contact/' },
-  },
-  {
-    image: '/assets/images/hero/hero-3.jpg',
-    eyebrow: 'After School Homework Assistance',
-    title: 'Support every school day, August through mid-June',
-    text: 'One-on-one help Monday through Friday, in person at our San Gabriel campus or online from home.',
-    cta: { label: 'See the Program', url: '/services/homework-assistance.html' },
-  },
-];
+// content/hero-slides.json and content/pages/home.json — both edited via the
+// CMS at /admin/.
+const slides = require('../../content/hero-slides.json').map((s) => ({
+  image: s.image,
+  eyebrow: s.eyebrow.replace('{founded}', site.founded),
+  title: s.title,
+  text: s.text,
+  cta: { label: s.ctaLabel, url: s.ctaUrl },
+}));
+const content = require('../../content/pages/home.json');
 
 function hero(depth) {
   // Only the first slide carries the page's <h1>; the rest are <h2> so the
@@ -69,16 +55,10 @@ function hero(depth) {
 }
 
 function stats() {
-  const items = [
-    ['1991', 'Founded in the San Gabriel Valley'],
-    ['20+', 'Years of college counseling'],
-    ['15', 'Instructors across every core subject'],
-    ['26', 'Top universities our students attend'],
-  ];
   return `<div class="stats">
-    ${items
+    ${content.stats
       .map(
-        ([n, l]) => `<div class="stat"><span class="stat__num">${n}</span><span class="stat__label">${l}</span></div>`
+        (s) => `<div class="stat"><span class="stat__num">${s.number}</span><span class="stat__label">${s.label}</span></div>`
       )
       .join('\n    ')}
   </div>`;
@@ -96,9 +76,9 @@ ${hero(depth)}
 
 ${section({
   tone: 'white',
-  eyebrow: 'What We Do',
-  title: 'Programs built around each student',
-  lead: 'Six core services, delivered one-on-one or in small groups, online and at our San Gabriel campus.',
+  eyebrow: content.whatWeDo.eyebrow,
+  title: content.whatWeDo.title,
+  lead: content.whatWeDo.lead,
   narrow: true,
   body: cardGrid(services, depth) + stats(),
 })}
@@ -110,13 +90,11 @@ ${section({
         <img class="rounded" src="${rel('/assets/images/services/homework.jpg', depth)}" alt="Students working through homework with an instructor" width="640" height="460" loading="lazy">
       </div>
       <div class="split__body">
-        <p class="eyebrow">After School Homework Assistance</p>
-        <h2 class="section__title">Help every school day, August through mid-June</h2>
-        <p>Our after school program runs in parallel with the school year so students never fall behind. Sessions are one-on-one, available Monday through Friday, and can be taken in person or online.</p>
+        <p class="eyebrow">${content.homework.eyebrow}</p>
+        <h2 class="section__title">${content.homework.title}</h2>
+        <p>${content.homework.body}</p>
         <ul class="ticks">
-          <li>${icons.check({ size: 16 })}<span>Runs August through mid-June alongside the school calendar</span></li>
-          <li>${icons.check({ size: 16 })}<span>One-on-one attention, in person or online</span></li>
-          <li>${icons.check({ size: 16 })}<span>Monday through Friday availability</span></li>
+          ${content.homework.ticks.map((t) => `<li>${icons.check({ size: 16 })}<span>${t}</span></li>`).join('\n          ')}
         </ul>
         <a class="btn btn--primary" href="${rel('/services/homework-assistance.html', depth)}">Learn More ${icons.arrow({ size: 16 })}</a>
       </div>
@@ -128,9 +106,9 @@ ${ctaBand({ depth })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'Testimonials',
-  title: 'What parents say',
-  lead: 'Families across the San Gabriel Valley have trusted us with their children for three decades.',
+  eyebrow: content.testimonials.eyebrow,
+  title: content.testimonials.title,
+  lead: content.testimonials.lead,
   narrow: true,
   body:
     // The live homepage features these two specifically.

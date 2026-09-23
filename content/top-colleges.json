@@ -1,0 +1,42 @@
+{
+  "top26": [
+    "Harvard University",
+    "Princeton University",
+    "Yale University",
+    "Columbia University",
+    "Stanford University",
+    "University of Pennsylvania",
+    "California Institute of Technology",
+    "Massachusetts Institute of Technology",
+    "Dartmouth College",
+    "Duke University",
+    "University of Chicago",
+    "Northwestern University",
+    "Johns Hopkins University",
+    "Washington University in St. Louis",
+    "Brown University",
+    "Cornell University",
+    "Rice University",
+    "Vanderbilt University",
+    "University of Notre Dame",
+    "Emory University",
+    "Georgetown University",
+    "UC Berkeley",
+    "Carnegie Mellon University",
+    "University of Southern California",
+    "UCLA",
+    "University of Virginia"
+  ],
+  "liberalArts10": [
+    "Williams College",
+    "Amherst College",
+    "Swarthmore College",
+    "Middlebury College",
+    "Wellesley College",
+    "Bowdoin College",
+    "Pomona College",
+    "Carleton College",
+    "Davidson College",
+    "Haverford College"
+  ]
+}

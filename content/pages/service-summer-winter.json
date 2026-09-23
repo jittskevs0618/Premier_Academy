@@ -1,0 +1,21 @@
+{
+  "hero": { "title": "Summer and Winter Programs", "lead": "English instruction in the morning, Southern California in the afternoon." },
+  "intro": {
+    "lead": "Our summer and winter programs are built for international students from China visiting the United States, often through partnerships with Chinese schools that let us tailor the experience to a specific group.",
+    "body": "Mornings are spent on English instruction and American culture. Afternoons are spent seeing Greater Los Angeles — Disneyland, Universal Studios, Magic Mountain, Hollywood, Santa Monica Beach, and the campuses of UCLA, USC and UC Irvine."
+  },
+  "schedule": {
+    "eyebrow": "Schedule",
+    "title": "Program lengths",
+    "cards": [
+      { "title": "Summer &mdash; 2 to 8 weeks", "text": "Running through June, July and August, sized to the visiting group's schedule." },
+      { "title": "Winter &mdash; 2 to 3 weeks", "text": "Running through December, January and February around the Chinese school calendar." }
+    ]
+  },
+  "included": {
+    "eyebrow": "Included",
+    "title": "What the program covers",
+    "items": ["Transportation throughout the program", "Classroom instruction", "Instructor services", "Attraction tickets", "Meals", "Additional locations: San Francisco and New York City"]
+  },
+  "cta": { "title": "Bringing a group?", "text": "We build tailored itineraries with partner schools. Tell us your dates and group size.", "buttonLabel": "Request a Proposal" }
+}

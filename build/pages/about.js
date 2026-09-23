@@ -6,6 +6,16 @@ const {
 } = require('../components');
 const { teachers, honorRoll, testimonials, galleryImages, newsVideos, newsRadio } = require('../data');
 
+// content/pages/about*.json — all edited via the CMS at /admin/.
+const cAbout = require('../../content/pages/about.json');
+const cDirector = require('../../content/pages/about-director.json');
+const cTestimonials = require('../../content/pages/about-testimonials.json');
+const cHonorRoll = require('../../content/pages/about-honor-roll.json');
+const cNews = require('../../content/pages/about-news-press.json');
+const cGallery = require('../../content/pages/about-gallery.json');
+const cTeachers = require('../../content/pages/about-teachers.json');
+const cJobs = require('../../content/pages/about-jobs.json');
+
 const crumbAbout = { label: 'About Us', url: '/about/' };
 
 module.exports = [
@@ -17,8 +27,8 @@ module.exports = [
       'Founded in 1991, Premier Academy creates a challenging and stimulating learning environment that develops intellect, self-confidence and discipline.',
     body: (depth) => `
 ${pageHero({
-  title: 'About Premier Academy',
-  lead: 'A challenging and stimulating learning environment, built one student at a time since 1991.',
+  title: cAbout.hero.title,
+  lead: cAbout.hero.lead,
   crumbs: [{ label: 'About Us' }],
   depth,
 })}
@@ -31,13 +41,13 @@ ${pageHero({
       </div>
       <div class="split__body">
         ${prose(`
-        <p class="lead">Since it was founded in 1991, Premier Academy has stood by its goal to create a challenging and stimulating learning environment.</p>
-        <p>The institution aims to develop student intellect while fostering self-confidence and discipline — the habits that carry a student long after a particular course or exam is behind them.</p>
-        <h2>Our mission</h2>
-        <p>The Academy emphasizes fundamental preparation in academic skills in order to achieve <strong>elementary excellence</strong>, <strong>middle school mastery</strong>, and <strong>college preparation</strong>.</p>
-        <h2>Our faculty</h2>
-        <p>Professional instructors provide academic and college counseling shaped to fit each student's needs for them to gain entrance into the most prestigious universities.</p>
-        <p><a class="btn btn--primary" href="${rel('/about/faculty/teachers.html', depth)}">Meet our teachers ${icons.arrow({ size: 16 })}</a></p>
+        <p class="lead">${cAbout.intro.lead}</p>
+        <p>${cAbout.intro.body}</p>
+        <h2>${cAbout.intro.missionTitle}</h2>
+        <p>${cAbout.intro.missionBody}</p>
+        <h2>${cAbout.intro.facultyTitle}</h2>
+        <p>${cAbout.intro.facultyBody}</p>
+        <p><a class="btn btn--primary" href="${rel('/about/faculty/teachers.html', depth)}">${cAbout.intro.ctaLabel} ${icons.arrow({ size: 16 })}</a></p>
         `)}
       </div>
     </div>
@@ -46,13 +56,11 @@ ${pageHero({
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Our Approach',
-  title: 'Three stages, one continuous plan',
+  eyebrow: cAbout.approach.eyebrow,
+  title: cAbout.approach.title,
   narrow: true,
   body: `<div class="grid grid--3">
-    <article class="card"><div class="card__body"><h3 class="card__title">Elementary excellence</h3><p class="card__text">Fundamental skills in reading, writing and mathematics, taught until they are genuinely secure rather than merely covered.</p></div></article>
-    <article class="card"><div class="card__body"><h3 class="card__title">Middle school mastery</h3><p class="card__text">Deeper subject work, study habits and the confidence to take on honors and accelerated coursework in high school.</p></div></article>
-    <article class="card"><div class="card__body"><h3 class="card__title">College preparation</h3><p class="card__text">Test preparation, AP coursework and counseling that positions each student for the most selective universities.</p></div></article>
+    ${cAbout.approach.cards.map((c) => `<article class="card"><div class="card__body"><h3 class="card__title">${c.title}</h3><p class="card__text">${c.text}</p></div></article>`).join('\n    ')}
   </div>`,
 })}
 
@@ -68,7 +76,7 @@ ${ctaBand({ depth })}
       'A message from Allison Huang, Director of Premier Academy, on faculty, philosophy and the whole student.',
     body: (depth) => `
 ${pageHero({
-  title: 'Message from the Director',
+  title: cDirector.hero.title,
   crumbs: [crumbAbout, { label: 'Message from Director' }],
   depth,
 })}
@@ -79,16 +87,16 @@ ${pageHero({
       <div class="split__media">
         <figure class="portrait">
           <img src="${rel('/assets/images/director.jpg', depth)}" alt="Allison Huang, Director of Premier Academy" width="225" height="300">
-          <figcaption><strong>Allison Huang</strong><span>Director, Premier Academy</span></figcaption>
+          <figcaption><strong>${cDirector.name}</strong><span>${cDirector.role}</span></figcaption>
         </figure>
       </div>
       <div class="split__body">
         ${prose(`
-        <p class="lead">Welcome to Premier Academy.</p>
-        <p>The key to our success lies in our teachers. We take great care in selecting and retaining the most highly skilled teachers who show a passion for both the learning and the teaching process.</p>
-        <p>At Premier we believe it is our responsibility to strive for excellence in all aspects of our students' development. A comprehensive education is not academics alone — it requires a broad range of extracurricular and social activities alongside coursework, so that students grow into capable and well-rounded adults.</p>
-        <p>Whether your child joins us for a single subject, for test preparation, or for the full arc of college counseling, you can be certain to receive the best quality service, education, and guidance toward achieving your educational goals.</p>
-        <p class="signature">Allison Huang<br><span>Director, Premier Academy</span></p>
+        <p class="lead">${cDirector.message.greeting}</p>
+        <p>${cDirector.message.teachers}</p>
+        <p>${cDirector.message.philosophy}</p>
+        <p>${cDirector.message.closing}</p>
+        <p class="signature">${cDirector.name}<br><span>${cDirector.role}</span></p>
         `)}
       </div>
     </div>
@@ -96,9 +104,9 @@ ${pageHero({
 </section>
 
 ${ctaBand({
-  title: 'Come see the campus',
+  title: cDirector.cta.title,
   text: `Visit us at ${site.address.full}, or call ${site.phone} to arrange a time.`,
-  buttonLabel: 'Contact Us',
+  buttonLabel: cDirector.cta.buttonLabel,
   depth,
 })}
 `,
@@ -112,8 +120,8 @@ ${ctaBand({
       'Parents on tutoring, test preparation and college counseling at Premier Academy in San Gabriel, California.',
     body: (depth) => `
 ${pageHero({
-  title: 'Testimonials',
-  lead: 'In the words of the families who have trusted us with their children.',
+  title: cTestimonials.hero.title,
+  lead: cTestimonials.hero.lead,
   crumbs: [crumbAbout, { label: 'Testimonials' }],
   depth,
 })}
@@ -136,8 +144,8 @@ ${newsletter()}
       'Premier Academy students recognized for outstanding academic achievement across San Gabriel Valley schools.',
     body: (depth) => `
 ${pageHero({
-  title: 'Honor Roll',
-  lead: 'Students recognized for outstanding academic achievement.',
+  title: cHonorRoll.hero.title,
+  lead: cHonorRoll.hero.lead,
   crumbs: [crumbAbout, { label: 'Honor Roll' }],
   depth,
 })}
@@ -145,15 +153,15 @@ ${pageHero({
 ${section({
   tone: 'white',
   body: dataTable(['Student', 'Grade', 'School'], honorRoll, {
-    caption: 'Premier Academy Honor Roll',
+    caption: cHonorRoll.tableCaption,
     cls: 'table--honor',
   }),
 })}
 
 ${ctaBand({
-  title: 'Ready to join them?',
+  title: cHonorRoll.cta.title,
   text: `Call ${site.phone} or send us a message to find the right program for your student.`,
-  buttonLabel: 'Get Started',
+  buttonLabel: cHonorRoll.cta.buttonLabel,
   depth,
 })}
 `,
@@ -167,16 +175,16 @@ ${ctaBand({
       'Television features, lectures and radio interviews with Premier Academy on college planning, test prep and summer programs.',
     body: (depth) => `
 ${pageHero({
-  title: 'News &amp; Press',
-  lead: 'Television features, seminars and radio interviews with the Premier Academy team.',
+  title: cNews.hero.title,
+  lead: cNews.hero.lead,
   crumbs: [crumbAbout, { label: 'News/Press' }],
   depth,
 })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'Video',
-  title: 'Features, commercials and lectures',
+  eyebrow: cNews.video.eyebrow,
+  title: cNews.video.title,
   narrow: true,
   body: `<div class="grid grid--3">
     ${newsVideos
@@ -208,8 +216,8 @@ ${section({
     description: 'Photographs of classes, students and campus life at Premier Academy in San Gabriel, California.',
     body: (depth) => `
 ${pageHero({
-  title: 'Gallery',
-  lead: 'Inside the classrooms, and the students who fill them.',
+  title: cGallery.hero.title,
+  lead: cGallery.hero.lead,
   crumbs: [crumbAbout, { label: 'Gallery' }],
   depth,
 })}
@@ -229,11 +237,11 @@ ${section({
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Go At Your Own Pace',
-  title: 'Every student sets their own timeline',
-  lead: 'Some students come for one subject, others for four years of planning. Both are welcome, and both get the same attention.',
+  eyebrow: cGallery.cta.eyebrow,
+  title: cGallery.cta.title,
+  lead: cGallery.cta.lead,
   narrow: true,
-  body: `<p class="center"><a class="btn btn--primary" href="${rel('/contact/', depth)}">Talk to us about your student ${icons.arrow({ size: 16 })}</a></p>`,
+  body: `<p class="center"><a class="btn btn--primary" href="${rel('/contact/', depth)}">${cGallery.cta.linkLabel} ${icons.arrow({ size: 16 })}</a></p>`,
 })}
 
 ${newsletter()}
@@ -248,8 +256,8 @@ ${newsletter()}
       'Premier Academy faculty: instructors from Caltech, Harvard, Oxford, UC Berkeley, UCLA and more, teaching math, science, English, AP and test prep.',
     body: (depth) => `
 ${pageHero({
-  title: 'Our Teachers',
-  lead: 'The key to our success lies in our teachers — selected and retained for skill and for a genuine passion for teaching.',
+  title: cTeachers.hero.title,
+  lead: cTeachers.hero.lead,
   crumbs: [crumbAbout, { label: 'Faculty' }, { label: 'Teachers' }],
   depth,
 })}
@@ -271,9 +279,9 @@ ${section({
 })}
 
 ${ctaBand({
-  title: 'Join our faculty',
-  text: 'We hire across English, Math, Science, Chinese, SAT/ACT and every AP category.',
-  buttonLabel: 'See Job Opportunities',
+  title: cTeachers.cta.title,
+  text: cTeachers.cta.text,
+  buttonLabel: cTeachers.cta.buttonLabel,
   depth,
 })}
 `,
@@ -287,41 +295,38 @@ ${ctaBand({
       'Teaching and leadership openings at Premier Academy in San Gabriel, California, including the Campus Director position.',
     body: (depth) => `
 ${pageHero({
-  title: 'Job Opportunities',
-  lead: 'Openings for teachers and academic leadership at our San Gabriel campus.',
+  title: cJobs.hero.title,
+  lead: cJobs.hero.lead,
   crumbs: [crumbAbout, { label: 'Faculty' }, { label: 'Job Opportunities' }],
   depth,
 })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'Featured Position',
-  title: 'Campus Director',
+  eyebrow: cJobs.featured.eyebrow,
+  title: cJobs.featured.title,
   narrow: true,
   body: `<article class="job">
     <ul class="job__meta">
-      <li><span class="label">Location</span>Los Angeles County, California</li>
-      <li><span class="label">Organization</span>PLW Education, Inc. dba Premier Academy</li>
+      <li><span class="label">Location</span>${cJobs.featured.location}</li>
+      <li><span class="label">Organization</span>${cJobs.featured.organization}</li>
     </ul>
     ${accordion([
       {
         title: 'Responsibilities',
         body: `<ul class="ticks">
-          <li>${icons.check({ size: 16 })}<span><strong>Education Program Management (75%)</strong> — develop program schedules across all academic offerings.</span></li>
-          <li>${icons.check({ size: 16 })}<span><strong>Operations Optimization (25%)</strong> — analyze operational efficiency and recommend improvements.</span></li>
+          ${cJobs.featured.responsibilities.map((r) => `<li>${icons.check({ size: 16 })}<span>${r}</span></li>`).join('\n          ')}
         </ul>`,
       },
       {
         title: 'Qualifications',
         body: `<ul class="ticks">
-          <li>${icons.check({ size: 16 })}<span>Master's degree in economics or a related field.</span></li>
-          <li>${icons.check({ size: 16 })}<span>One year of relevant experience.</span></li>
-          <li>${icons.check({ size: 16 })}<span>Proficiency with the R programming language.</span></li>
+          ${cJobs.featured.qualifications.map((q) => `<li>${icons.check({ size: 16 })}<span>${q}</span></li>`).join('\n          ')}
         </ul>`,
       },
       {
         title: 'How to apply',
-        body: `<p>Send your resume to <strong>Pierre Wuu</strong>, 3355 Yorkshire Rd, Pasadena, California.</p>`,
+        body: `<p>${cJobs.featured.howToApply}</p>`,
       },
     ])}
   </article>`,
@@ -329,21 +334,21 @@ ${section({
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Open Continuously',
-  title: 'General faculty positions',
+  eyebrow: cJobs.general.eyebrow,
+  title: cJobs.general.title,
   narrow: true,
   body: `<div class="grid grid--2">
     <article class="card"><div class="card__body">
-      <h3 class="card__title">Disciplines we hire</h3>
-      <p class="card__text">English, Math, Science, Chinese, SAT/ACT preparation, and all AP categories.</p>
+      <h3 class="card__title">${cJobs.general.disciplinesTitle}</h3>
+      <p class="card__text">${cJobs.general.disciplinesText}</p>
     </div></article>
     <article class="card"><div class="card__body">
-      <h3 class="card__title">Requirements</h3>
-      <p class="card__text">Bachelor's degree minimum, plus experience teaching students in grades 1&ndash;12.</p>
+      <h3 class="card__title">${cJobs.general.requirementsTitle}</h3>
+      <p class="card__text">${cJobs.general.requirementsText}</p>
     </div></article>
   </div>
-  <p class="center mt-lg">Email your resume to <a href="mailto:${site.email}?subject=Job%20Application"><strong>${site.email}</strong></a> with the subject line <strong>&ldquo;Job Application&rdquo;</strong>.</p>
-  <p class="center"><a class="btn btn--primary" href="mailto:${site.email}?subject=Job%20Application">Apply by email ${icons.arrow({ size: 16 })}</a></p>`,
+  <p class="center mt-lg">Email your resume to <a href="mailto:${site.email}?subject=Job%20Application"><strong>${site.email}</strong></a> ${cJobs.general.applyBlurb} <strong>&ldquo;${cJobs.general.subjectLine}&rdquo;</strong>.</p>
+  <p class="center"><a class="btn btn--primary" href="mailto:${site.email}?subject=Job%20Application">${cJobs.general.applyButtonLabel} ${icons.arrow({ size: 16 })}</a></p>`,
 })}
 `,
   },

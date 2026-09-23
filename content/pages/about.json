@@ -1,0 +1,21 @@
+{
+  "hero": { "title": "About Premier Academy", "lead": "A challenging and stimulating learning environment, built one student at a time since 1991." },
+  "intro": {
+    "lead": "Since it was founded in 1991, Premier Academy has stood by its goal to create a challenging and stimulating learning environment.",
+    "body": "The institution aims to develop student intellect while fostering self-confidence and discipline — the habits that carry a student long after a particular course or exam is behind them.",
+    "missionTitle": "Our mission",
+    "missionBody": "The Academy emphasizes fundamental preparation in academic skills in order to achieve <strong>elementary excellence</strong>, <strong>middle school mastery</strong>, and <strong>college preparation</strong>.",
+    "facultyTitle": "Our faculty",
+    "facultyBody": "Professional instructors provide academic and college counseling shaped to fit each student's needs for them to gain entrance into the most prestigious universities.",
+    "ctaLabel": "Meet our teachers"
+  },
+  "approach": {
+    "eyebrow": "Our Approach",
+    "title": "Three stages, one continuous plan",
+    "cards": [
+      { "title": "Elementary excellence", "text": "Fundamental skills in reading, writing and mathematics, taught until they are genuinely secure rather than merely covered." },
+      { "title": "Middle school mastery", "text": "Deeper subject work, study habits and the confidence to take on honors and accelerated coursework in high school." },
+      { "title": "College preparation", "text": "Test preparation, AP coursework and counseling that positions each student for the most selective universities." }
+    ]
+  }
+}

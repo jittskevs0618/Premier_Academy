@@ -6,6 +6,13 @@ const {
 } = require('../components');
 const { counselingPrograms, successStories, topColleges, liberalArts, tutoringSubjects } = require('../data');
 
+// content/pages/*.json — all edited via the CMS at /admin/.
+const cTutoring = require('../../content/pages/private-tutoring.json');
+const cCounseling = require('../../content/pages/college-counseling.json');
+const cSuccess = require('../../content/pages/college-success-stories.json');
+const cTopColleges = require('../../content/pages/college-top-colleges.json');
+const cTransfer = require('../../content/pages/college-transfer.json');
+
 const crumbCC = { label: 'College Counseling', url: '/college-counseling/' };
 
 module.exports = [
@@ -17,8 +24,8 @@ module.exports = [
       'Highly personalized one-on-one tutoring in math, English, science, history, AP subjects, SAT and ISEE — online or in person in San Gabriel, CA.',
     body: (depth) => `
 ${pageHero({
-  title: 'Private Tutoring at Premier Academy',
-  lead: 'A highly personalized learning experience, tailored to each student’s individual academic needs.',
+  title: cTutoring.hero.title,
+  lead: cTutoring.hero.lead,
   crumbs: [{ label: 'Private Tutoring' }],
   depth,
 })}
@@ -31,16 +38,14 @@ ${pageHero({
       </div>
       <div class="split__body">
         ${prose(`
-        <p class="lead">Every tutoring plan starts with the student, not the syllabus.</p>
-        <p>Our tutors undergo rigorous screening before they ever meet a student, and sessions can be held online from home using modern conferencing technology or in person at our San Gabriel campus.</p>
-        <p>Students who prefer to work alongside friends may form <strong>small groups of two or three</strong> for a more cost-efficient arrangement, without losing the individual attention that makes tutoring work.</p>
+        <p class="lead">${cTutoring.intro.lead}</p>
+        <p>${cTutoring.intro.body}</p>
+        <p>${cTutoring.intro.groups}</p>
         `)}
         <ul class="ticks">
-          <li>${icons.check({ size: 16 })}<span>Rigorously screened, subject-specialist tutors</span></li>
-          <li>${icons.check({ size: 16 })}<span>Online or in person, whichever suits the family</span></li>
-          <li>${icons.check({ size: 16 })}<span>Small groups of 2&ndash;3 available for cost efficiency</span></li>
+          ${cTutoring.intro.ticks.map((t) => `<li>${icons.check({ size: 16 })}<span>${t}</span></li>`).join('\n          ')}
         </ul>
-        <a class="btn btn--primary" href="${rel('/contact/', depth)}">Request a tutor ${icons.arrow({ size: 16 })}</a>
+        <a class="btn btn--primary" href="${rel('/contact/', depth)}">${cTutoring.intro.ctaLabel} ${icons.arrow({ size: 16 })}</a>
       </div>
     </div>
   </div>
@@ -48,17 +53,17 @@ ${pageHero({
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Subjects',
-  title: 'What we tutor',
-  lead: 'From basic math through AP coursework and standardized test preparation.',
+  eyebrow: cTutoring.subjects.eyebrow,
+  title: cTutoring.subjects.title,
+  lead: cTutoring.subjects.lead,
   narrow: true,
   body: topicGroups(tutoringSubjects),
 })}
 
 ${ctaBand({
-  title: 'Not sure which subject to start with?',
+  title: cTutoring.cta.title,
   text: `Call ${site.phone} and we will match your student to the right tutor.`,
-  buttonLabel: 'Get Matched',
+  buttonLabel: cTutoring.cta.buttonLabel,
   depth,
 })}
 `,
@@ -72,8 +77,8 @@ ${ctaBand({
       'Over 20 years preparing students for admission to the nation’s top universities: curriculum planning, essays, interviews, financial aid and scholarships.',
     body: (depth) => `
 ${pageHero({
-  title: 'College Counseling',
-  lead: 'Over 20 years successfully preparing and sending students to the best universities in the United States.',
+  title: cCounseling.hero.title,
+  lead: cCounseling.hero.lead,
   crumbs: [{ label: 'College Counseling' }],
   depth,
 })}
@@ -82,28 +87,28 @@ ${section({
   tone: 'white',
   narrow: true,
   body: prose(`
-    <p class="lead">We specialize in assisting students prepare for the college application process and are committed to help students gain admission to the nation's top universities.</p>
-    <p>Counseling is a multi-year relationship, not a senior-year scramble. We work with families from course selection in the early high school years all the way through financial aid awards.</p>
+    <p class="lead">${cCounseling.intro.lead}</p>
+    <p>${cCounseling.intro.body}</p>
   `),
 })}
 
 ${section({
   tone: 'alt',
-  eyebrow: 'The Program',
-  title: 'Seven components, start to finish',
+  eyebrow: cCounseling.program.eyebrow,
+  title: cCounseling.program.title,
   narrow: true,
   body: featureList(counselingPrograms),
 })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'Where Our Students Go',
-  title: 'Admissions results',
-  lead: 'Berkeley, USC, Georgetown, NYU, Carnegie Mellon, the University of Chicago and more — many with substantial scholarships.',
+  eyebrow: cCounseling.results.eyebrow,
+  title: cCounseling.results.title,
+  lead: cCounseling.results.lead,
   narrow: true,
   body: `<p class="center">
-    <a class="btn btn--primary" href="${rel('/college-counseling/success-stories.html', depth)}">Read success stories ${icons.arrow({ size: 16 })}</a>
-    <a class="btn btn--outline-primary" href="${rel('/college-counseling/top-colleges.html', depth)}">See top colleges</a>
+    <a class="btn btn--primary" href="${rel('/college-counseling/success-stories.html', depth)}">${cCounseling.results.successStoriesLabel} ${icons.arrow({ size: 16 })}</a>
+    <a class="btn btn--outline-primary" href="${rel('/college-counseling/top-colleges.html', depth)}">${cCounseling.results.topCollegesLabel}</a>
   </p>`,
 })}
 
@@ -119,8 +124,8 @@ ${ctaBand({ depth })}
       'Premier Academy students accepted to UC Berkeley, USC, Georgetown, NYU, Carnegie Mellon, Indiana University and more — in their own words.',
     body: (depth) => `
 ${pageHero({
-  title: 'Success Stories',
-  lead: 'Students, the universities that accepted them, and what made the difference.',
+  title: cSuccess.hero.title,
+  lead: cSuccess.hero.lead,
   crumbs: [crumbCC, { label: 'Success Stories' }],
   depth,
 })}
@@ -150,16 +155,16 @@ ${newsletter()}
       'The top 26 national universities and top 10 liberal arts colleges Premier Academy students target and attend.',
     body: (depth) => `
 ${pageHero({
-  title: 'Top Colleges',
-  lead: 'The universities we help students prepare for, and the ones they go on to attend.',
+  title: cTopColleges.hero.title,
+  lead: cTopColleges.hero.lead,
   crumbs: [crumbCC, { label: 'Top Colleges' }],
   depth,
 })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'National Universities',
-  title: 'Top 26 colleges',
+  eyebrow: cTopColleges.national.eyebrow,
+  title: cTopColleges.national.title,
   narrow: true,
   body: `<ol class="ranklist">
     ${topColleges.map((c) => `<li><span class="ranklist__num"></span><span class="ranklist__name">${c}</span></li>`).join('\n    ')}
@@ -168,8 +173,8 @@ ${section({
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Liberal Arts',
-  title: 'Top 10 liberal arts colleges',
+  eyebrow: cTopColleges.liberalArts.eyebrow,
+  title: cTopColleges.liberalArts.title,
   narrow: true,
   body: `<ol class="ranklist ranklist--alt">
     ${liberalArts.map((c) => `<li><span class="ranklist__num"></span><span class="ranklist__name">${c}</span></li>`).join('\n    ')}
@@ -177,8 +182,8 @@ ${section({
 })}
 
 ${ctaBand({
-  title: 'Build a plan for your list',
-  text: 'A free one-hour session covers where your student stands and what the next twelve months should look like.',
+  title: cTopColleges.cta.title,
+  text: cTopColleges.cta.text,
   depth,
 })}
 `,
@@ -192,8 +197,8 @@ ${ctaBand({
       'Transfer counseling for community college and university students: positioning, personal statements, major selection and strategic planning.',
     body: (depth) => `
 ${pageHero({
-  title: 'As a transfer student, how can I get into my dream university?',
-  lead: 'Transfer admission rewards a clear story. We help students build one.',
+  title: cTransfer.hero.title,
+  lead: cTransfer.hero.lead,
   crumbs: [crumbCC, { label: 'Transfer' }],
   depth,
 })}
@@ -202,37 +207,29 @@ ${section({
   tone: 'white',
   narrow: true,
   body: prose(`
-    <p class="lead">Transfer applications are judged differently from freshman applications. Committees want to know why you are moving, what you have already accomplished, and why their program is the right destination.</p>
-    <p>Premier Academy works with transfer applicants from community colleges and four-year universities alike, on both the written materials and the strategy behind them.</p>
+    <p class="lead">${cTransfer.intro.lead}</p>
+    <p>${cTransfer.intro.body}</p>
   `),
 })}
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Strategy',
-  title: 'What a strong transfer application does',
+  eyebrow: cTransfer.strategy.eyebrow,
+  title: cTransfer.strategy.title,
   narrow: true,
-  body: featureList([
-    { title: 'Personal positioning', text: 'Identify what distinguishes the applicant academically and personally, and make that the spine of the application.' },
-    { title: 'Articulation of purpose', text: 'State clearly why this university and this major, with specifics that could not be copied into another application.' },
-    { title: 'Academic transition justification', text: 'Explain the move in a way that reads as progress and intent rather than escape.' },
-  ]),
+  body: featureList(cTransfer.strategy.items),
 })}
 
 ${section({
   tone: 'white',
-  eyebrow: 'Services',
-  title: 'How we help',
+  eyebrow: cTransfer.services.eyebrow,
+  title: cTransfer.services.title,
   narrow: true,
   body: `<div class="grid grid--2">
-    <article class="card"><div class="card__body">
-      <h3 class="card__title">Professional editing</h3>
-      <p class="card__text">Personal statements, brainstorming sessions, essay revision, and grammar and structure review.</p>
-    </div></article>
-    <article class="card"><div class="card__body">
-      <h3 class="card__title">University counseling</h3>
-      <p class="card__text">Major selection, university analysis, and strategic planning across the full transfer timeline.</p>
-    </div></article>
+    ${cTransfer.services.cards.map((c) => `<article class="card"><div class="card__body">
+      <h3 class="card__title">${c.title}</h3>
+      <p class="card__text">${c.text}</p>
+    </div></article>`).join('\n    ')}
   </div>`,
 })}
 

@@ -1,0 +1,12 @@
+{
+  "hero": { "title": "Message from the Director", "lead": "" },
+  "name": "Allison Huang",
+  "role": "Director, Premier Academy",
+  "message": {
+    "greeting": "Welcome to Premier Academy.",
+    "teachers": "The key to our success lies in our teachers. We take great care in selecting and retaining the most highly skilled teachers who show a passion for both the learning and the teaching process.",
+    "philosophy": "At Premier we believe it is our responsibility to strive for excellence in all aspects of our students' development. A comprehensive education is not academics alone — it requires a broad range of extracurricular and social activities alongside coursework, so that students grow into capable and well-rounded adults.",
+    "closing": "Whether your child joins us for a single subject, for test preparation, or for the full arc of college counseling, you can be certain to receive the best quality service, education, and guidance toward achieving your educational goals."
+  },
+  "cta": { "title": "Come see the campus", "buttonLabel": "Contact Us" }
+}

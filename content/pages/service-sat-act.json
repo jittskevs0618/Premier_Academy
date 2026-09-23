@@ -1,0 +1,23 @@
+{
+  "hero": { "title": "SAT / ACT", "lead": "Private, personalized preparation for the SAT, SAT II subject tests and the ACT." },
+  "intro": {
+    "lead": "Private and personalized one-on-one tutoring for SAT English and Math, SAT II subject tests, and ACT exam preparation.",
+    "body": "Online sessions are prioritized so students can work from home on a schedule that fits around school; small group options are available for students who prefer to prepare alongside classmates."
+  },
+  "weekend": {
+    "eyebrow": "Weekend Courses",
+    "title": "Weekend SAT prep",
+    "cards": [
+      { "title": "4.5-hour Saturday sessions", "text": "Three 90-minute instructional blocks covering Critical Reading, Writing and Math — the full test in one sitting each week." },
+      { "title": "Weekly practice exams", "text": "Full-length practice exams on Tuesdays or Fridays, 4:00&ndash;7:30 PM, with graded assessments so progress is measured, not guessed at." }
+    ],
+    "ticks": [
+      "Critical Reading, Writing and Math in every session",
+      "Graded assessments for week-over-week progress tracking",
+      "Available online and in person"
+    ]
+  },
+  "summer": { "eyebrow": "Summer", "title": "Summer intensive SAT/ACT online bootcamp", "lead": "A concentrated summer program for students testing in the fall — the full curriculum, compressed and taught online.", "linkLabel": "Ask about bootcamp dates" },
+  "registration": { "eyebrow": "Registration", "title": "Official test dates", "lead": "Register directly with the testing organizations — we will help you choose which date to sit for." },
+  "cta": { "title": "Start test prep", "buttonLabel": "Book a Diagnostic" }
+}

@@ -1,0 +1,15 @@
+{
+  "hero": { "title": "College Counseling", "lead": "Over 20 years successfully preparing and sending students to the best universities in the United States." },
+  "intro": {
+    "lead": "We specialize in assisting students prepare for the college application process and are committed to help students gain admission to the nation's top universities.",
+    "body": "Counseling is a multi-year relationship, not a senior-year scramble. We work with families from course selection in the early high school years all the way through financial aid awards."
+  },
+  "program": { "eyebrow": "The Program", "title": "Seven components, start to finish" },
+  "results": {
+    "eyebrow": "Where Our Students Go",
+    "title": "Admissions results",
+    "lead": "Berkeley, USC, Georgetown, NYU, Carnegie Mellon, the University of Chicago and more — many with substantial scholarships.",
+    "successStoriesLabel": "Read success stories",
+    "topCollegesLabel": "See top colleges"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "hero": { "title": "Job Opportunities", "lead": "Openings for teachers and academic leadership at our San Gabriel campus." },
+  "featured": {
+    "eyebrow": "Featured Position",
+    "title": "Campus Director",
+    "location": "Los Angeles County, California",
+    "organization": "PLW Education, Inc. dba Premier Academy",
+    "responsibilities": [
+      "<strong>Education Program Management (75%)</strong> — develop program schedules across all academic offerings.",
+      "<strong>Operations Optimization (25%)</strong> — analyze operational efficiency and recommend improvements."
+    ],
+    "qualifications": [
+      "Master's degree in economics or a related field.",
+      "One year of relevant experience.",
+      "Proficiency with the R programming language."
+    ],
+    "howToApply": "Send your resume to <strong>Pierre Wuu</strong>, 3355 Yorkshire Rd, Pasadena, California."
+  },
+  "general": {
+    "eyebrow": "Open Continuously",
+    "title": "General faculty positions",
+    "disciplinesTitle": "Disciplines we hire",
+    "disciplinesText": "English, Math, Science, Chinese, SAT/ACT preparation, and all AP categories.",
+    "requirementsTitle": "Requirements",
+    "requirementsText": "Bachelor's degree minimum, plus experience teaching students in grades 1&ndash;12.",
+    "applyBlurb": "with the subject line",
+    "subjectLine": "Job Application",
+    "applyButtonLabel": "Apply by email"
+  }
+}

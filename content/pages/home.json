@@ -1,0 +1,28 @@
+{
+  "whatWeDo": {
+    "eyebrow": "What We Do",
+    "title": "Programs built around each student",
+    "lead": "Six core services, delivered one-on-one or in small groups, online and at our San Gabriel campus."
+  },
+  "homework": {
+    "eyebrow": "After School Homework Assistance",
+    "title": "Help every school day, August through mid-June",
+    "body": "Our after school program runs in parallel with the school year so students never fall behind. Sessions are one-on-one, available Monday through Friday, and can be taken in person or online.",
+    "ticks": [
+      "Runs August through mid-June alongside the school calendar",
+      "One-on-one attention, in person or online",
+      "Monday through Friday availability"
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What parents say",
+    "lead": "Families across the San Gabriel Valley have trusted us with their children for three decades."
+  },
+  "stats": [
+    { "number": "1991", "label": "Founded in the San Gabriel Valley" },
+    { "number": "20+", "label": "Years of college counseling" },
+    { "number": "15", "label": "Instructors across every core subject" },
+    { "number": "26", "label": "Top universities our students attend" }
+  ]
+}

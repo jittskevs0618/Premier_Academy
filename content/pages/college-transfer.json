@@ -1,0 +1,24 @@
+{
+  "hero": { "title": "As a transfer student, how can I get into my dream university?", "lead": "Transfer admission rewards a clear story. We help students build one." },
+  "intro": {
+    "lead": "Transfer applications are judged differently from freshman applications. Committees want to know why you are moving, what you have already accomplished, and why their program is the right destination.",
+    "body": "Premier Academy works with transfer applicants from community colleges and four-year universities alike, on both the written materials and the strategy behind them."
+  },
+  "strategy": {
+    "eyebrow": "Strategy",
+    "title": "What a strong transfer application does",
+    "items": [
+      { "title": "Personal positioning", "text": "Identify what distinguishes the applicant academically and personally, and make that the spine of the application." },
+      { "title": "Articulation of purpose", "text": "State clearly why this university and this major, with specifics that could not be copied into another application." },
+      { "title": "Academic transition justification", "text": "Explain the move in a way that reads as progress and intent rather than escape." }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "How we help",
+    "cards": [
+      { "title": "Professional editing", "text": "Personal statements, brainstorming sessions, essay revision, and grammar and structure review." },
+      { "title": "University counseling", "text": "Major selection, university analysis, and strategic planning across the full transfer timeline." }
+    ]
+  }
+}

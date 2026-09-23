@@ -1,0 +1,16 @@
+{
+  "hero": { "title": "Private Tutoring at Premier Academy", "lead": "A highly personalized learning experience, tailored to each student’s individual academic needs." },
+  "intro": {
+    "lead": "Every tutoring plan starts with the student, not the syllabus.",
+    "body": "Our tutors undergo rigorous screening before they ever meet a student, and sessions can be held online from home using modern conferencing technology or in person at our San Gabriel campus.",
+    "groups": "Students who prefer to work alongside friends may form <strong>small groups of two or three</strong> for a more cost-efficient arrangement, without losing the individual attention that makes tutoring work.",
+    "ticks": [
+      "Rigorously screened, subject-specialist tutors",
+      "Online or in person, whichever suits the family",
+      "Small groups of 2&ndash;3 available for cost efficiency"
+    ],
+    "ctaLabel": "Request a tutor"
+  },
+  "subjects": { "eyebrow": "Subjects", "title": "What we tutor", "lead": "From basic math through AP coursework and standardized test preparation." },
+  "cta": { "title": "Not sure which subject to start with?", "buttonLabel": "Get Matched" }
+}

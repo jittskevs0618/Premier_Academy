@@ -4,10 +4,29 @@ const { rel } = require('../layout');
 const { pageHero, section, prose, ctaBand, newsletter } = require('../components');
 const { partners, notableVisitors } = require('../data');
 
+// content/pages/*.json — all edited via the CMS at /admin/.
+const cPartners = require('../../content/pages/partners.json');
+const cContact = require('../../content/pages/contact.json');
+const cPrivacy = require('../../content/pages/privacy-policy.json');
+const cTerms = require('../../content/pages/terms-conditions.json');
+const cNotFound = require('../../content/pages/notfound.json');
+
 const legalProse = (updated, blocks) => prose(`
   <p class="legal__updated"><strong>Last updated:</strong> ${updated}</p>
   ${blocks}
 `);
+
+// {token} placeholders in the legal bodies resolve against live site data, so
+// the address/phone/email never drift out of sync with the rest of the site.
+const fillTokens = (html) =>
+  html
+    .replace(/\{street\}/g, site.address.street)
+    .replace(/\{city\}/g, site.address.city)
+    .replace(/\{state\}/g, site.address.state)
+    .replace(/\{zip\}/g, site.address.zip)
+    .replace(/\{phone\}/g, site.phone)
+    .replace(/\{phoneHref\}/g, site.phoneHref)
+    .replace(/\{email\}/g, site.email);
 
 module.exports = [
   {
@@ -18,8 +37,8 @@ module.exports = [
       'Premier Academy partners with the College Board, JESIE, Hillside School, Toastmasters International and others across the United States and China.',
     body: (depth) => `
 ${pageHero({
-  title: 'Our Partners',
-  lead: 'Schools and organizations we work with across the United States and China.',
+  title: cPartners.hero.title,
+  lead: cPartners.hero.lead,
   crumbs: [{ label: 'Partners' }],
   depth,
 })}
@@ -28,15 +47,15 @@ ${section({
   tone: 'white',
   narrow: true,
   body: prose(`
-    <p class="lead">Premier Academy has many partners throughout the United States. These include regular private schools, boarding schools, and host families.</p>
-    <p>Premier Academy prides itself on knowing all key admissions personnel at our partner schools, which is a significant factor in successful placement.</p>
+    <p class="lead">${cPartners.intro.lead}</p>
+    <p>${cPartners.intro.body}</p>
   `),
 })}
 
 ${section({
   tone: 'alt',
-  eyebrow: 'Partner Organizations',
-  title: 'Who we work with',
+  eyebrow: cPartners.orgs.eyebrow,
+  title: cPartners.orgs.title,
   narrow: true,
   body: `<div class="logos">
     ${partners
@@ -49,9 +68,9 @@ ${section({
 
 ${section({
   tone: 'white',
-  eyebrow: 'Over Three Decades',
-  title: 'Friends of the Academy',
-  lead: 'Figures from business, science, sport and the arts who have crossed paths with Premier Academy and the Wuu family.',
+  eyebrow: cPartners.friends.eyebrow,
+  title: cPartners.friends.title,
+  lead: cPartners.friends.lead,
   narrow: true,
   body: `<div class="gallery gallery--captioned" id="notable">
     ${notableVisitors
@@ -68,9 +87,9 @@ ${section({
 })}
 
 ${ctaBand({
-  title: 'Interested in partnering with us?',
+  title: cPartners.cta.title,
   text: `Email ${site.email} or call ${site.phone} to discuss a program for your school or organization.`,
-  buttonLabel: 'Start a Conversation',
+  buttonLabel: cPartners.cta.buttonLabel,
   depth,
 })}
 `,
@@ -84,8 +103,8 @@ ${ctaBand({
       'Visit Premier Academy at 7220 Rosemead Blvd, Suite 104, San Gabriel, CA 91775. Call (626) 765-3519 or send us a message.',
     body: (depth) => `
 ${pageHero({
-  title: 'Contact Us',
-  lead: 'Questions about a program, a schedule or a price? We answer quickly.',
+  title: cContact.hero.title,
+  lead: cContact.hero.lead,
   crumbs: [{ label: 'Contact Us' }],
   depth,
 })}
@@ -106,7 +125,7 @@ ${pageHero({
       </div>
 
       <div class="contact__form-wrap">
-        <h2 class="section__title">Send us a message</h2>
+        <h2 class="section__title">${cContact.infoTitle}</h2>
         <form class="form" action="${site.formEndpoint}" method="POST" data-form="contact" novalidate>
           <div class="field">
             <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
@@ -178,53 +197,7 @@ ${pageHero({ title: 'Privacy Policy', crumbs: [{ label: 'Privacy Policy' }], dep
 ${section({
   tone: 'white',
   narrow: true,
-  body: legalProse(
-    'April 16, 2026',
-    `
-    <p>Premier Academy ("we", "us", "our") respects your privacy. This policy explains what information we collect, why we collect it, and what choices you have.</p>
-
-    <h2>Information we collect</h2>
-    <p>We collect information you give us directly when you contact us, enroll a student, or subscribe to our newsletter. This may include:</p>
-    <ul>
-      <li>Name and the name of the student</li>
-      <li>Email address</li>
-      <li>Phone number</li>
-      <li>Demographic information such as grade level, school and academic interests</li>
-    </ul>
-
-    <h2>How we use your information</h2>
-    <ul>
-      <li>To respond to enquiries and schedule consultations or sessions</li>
-      <li>To administer enrollment, billing and program logistics</li>
-      <li>To send program announcements, test-date reminders and discounts, where you have asked to receive them</li>
-      <li>To improve our programs and our website</li>
-    </ul>
-
-    <h2>Sharing with third parties</h2>
-    <p><strong>We do not sell your personal information.</strong> We share information only with service providers who help us operate — for example payment processors, email delivery services and analytics providers — and only to the extent needed to perform that service. We may also disclose information where required by law.</p>
-
-    <h2>SMS communications</h2>
-    <p>If you opt in to SMS, we may send messages about appointments, enrollment updates, billing reminders and customer support. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for assistance. Mobile opt-in data and consent are never shared with third parties for marketing purposes.</p>
-
-    <h2>Cookies and analytics</h2>
-    <p>This website uses cookies and Google Tag Manager to understand how visitors use the site. You can disable cookies in your browser settings; some parts of the site may then work differently.</p>
-
-    <h2>Your rights</h2>
-    <p>You may ask us to access, correct or delete the personal information we hold about you, and you may withdraw consent for marketing communications at any time.</p>
-
-    <h2>Children's privacy</h2>
-    <p>Our services are arranged by parents and guardians. We do not knowingly collect personal information directly from children under 13 without parental involvement.</p>
-
-    <h2>Contact us about your data</h2>
-    <p>
-      Premier Academy<br>
-      ${site.address.street}<br>
-      ${site.address.city}, ${site.address.state} ${site.address.zip}<br>
-      Phone: <a href="${site.phoneHref}">${site.phone}</a><br>
-      Email: <a href="mailto:${site.email}">${site.email}</a>
-    </p>
-    `
-  ),
+  body: legalProse(cPrivacy.lastUpdated, fillTokens(cPrivacy.bodyHtml)),
 })}
 `,
   },
@@ -241,40 +214,7 @@ ${pageHero({ title: 'Terms &amp; Conditions', crumbs: [{ label: 'Terms & Conditi
 ${section({
   tone: 'white',
   narrow: true,
-  body: legalProse(
-    'January 1, 2020',
-    `
-    <p>These terms govern your use of the Premier Academy website. By using the site, you accept them.</p>
-
-    <h2>About this website</h2>
-    <p>This website provides information about Premier Academy's tutoring, test preparation and college counseling programs. Content is provided for general information and may change without notice.</p>
-
-    <h2>Data collection</h2>
-    <p>We collect information you submit through forms on this site, including name, email address, phone number and any message content. See our <a href="privacy-policy.html">Privacy Policy</a> for the full detail.</p>
-
-    <h2>SMS policy</h2>
-    <p>By providing a mobile number and opting in, you consent to receive SMS messages from Premier Academy regarding appointments, enrollment updates, billing reminders and customer support. Message and data rates may apply. Reply STOP to unsubscribe.</p>
-
-    <h2>Data collection methods</h2>
-    <ul>
-      <li><strong>Cookies</strong> — small files stored by your browser that help the site function and remember preferences.</li>
-      <li><strong>Analytics</strong> — aggregate usage data collected through Google Tag Manager and associated tools.</li>
-      <li><strong>Forms</strong> — information you choose to submit directly.</li>
-    </ul>
-
-    <h2>How we use collected data</h2>
-    <p>To respond to enquiries, deliver and administer our programs, improve the website, and — where you have opted in — send relevant announcements and offers.</p>
-
-    <h2>User preferences</h2>
-    <p>You may opt out of marketing email at any time using the unsubscribe link, opt out of SMS by replying STOP, and control cookies through your browser settings.</p>
-
-    <h2>Children's privacy</h2>
-    <p>Children under the age of 13 should not use this website's services directly. Enrollment and communication are handled with a parent or legal guardian.</p>
-
-    <h2>Contact</h2>
-    <p>Questions about these terms: <a href="mailto:${site.email}">${site.email}</a> or <a href="${site.phoneHref}">${site.phone}</a>.</p>
-    `
-  ),
+  body: legalProse(cTerms.lastUpdated, fillTokens(cTerms.bodyHtml)),
 })}
 `,
   },
@@ -288,8 +228,8 @@ ${section({
 <section class="section section--white notfound">
   <div class="container">
     <p class="notfound__code">404</p>
-    <h1 class="section__title">We couldn’t find that page</h1>
-    <p class="section__lead">The link may be out of date, or the page may have moved during our site update. Here are some places to try instead.</p>
+    <h1 class="section__title">${cNotFound.title}</h1>
+    <p class="section__lead">${cNotFound.lead}</p>
     <div class="notfound__actions">
       <a class="btn btn--accent btn--lg" href="${rel('/', depth)}">Back to Home</a>
       <a class="btn btn--outline-primary btn--lg" href="${rel('/contact/', depth)}">Contact Us</a>
