@@ -25,22 +25,31 @@
 <script src="config.js"></script>
 <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 <script>
-  CMS.init({ config: window.CMS_CONFIG });
-
   // Decap appends its real UI as a new element in <body> instead of
   // replacing the placeholder above, so remove the placeholder ourselves
-  // the moment anything new shows up alongside it.
+  // the moment anything new shows up alongside it. This has to be set up
+  // BEFORE calling CMS.init() below — React's initial render can happen
+  // synchronously within that call, so watching for the mutation is only
+  // reliable if the observer is already attached first.
   (function () {
     var loadingEl = document.getElementById('initial-loading');
-    var initialCount = document.body.children.length;
-    var observer = new MutationObserver(function () {
-      if (document.body.children.length > initialCount) {
-        loadingEl.remove();
-        observer.disconnect();
-      }
-    });
+    var done = false;
+    var fallback;
+    function reveal() {
+      if (done) return;
+      done = true;
+      observer.disconnect();
+      clearTimeout(fallback);
+      if (loadingEl && loadingEl.parentNode) loadingEl.remove();
+    }
+    var observer = new MutationObserver(reveal);
     observer.observe(document.body, { childList: true });
+    // Safety net: if Decap never adds anything (an unexpected failure mode),
+    // don't leave editors staring at "Loading the editor..." forever.
+    fallback = setTimeout(reveal, 8000);
   })();
+
+  CMS.init({ config: window.CMS_CONFIG });
 </script>
 </body>
 </html>
