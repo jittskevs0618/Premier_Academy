@@ -34,8 +34,14 @@ module.exports = (req, res) => {
   // drop or shorten — which broke real logins here. Signing the state
   // itself means callback.js can verify it came from us without needing
   // anything to have survived the round trip.
+  //
+  // It also carries this exact redirectUri string, so callback.js reuses it
+  // verbatim for the token exchange rather than recomputing its own from
+  // that request's headers — GitHub requires the two to match exactly, and
+  // two independent computations off two different requests is one more
+  // way for that to silently drift.
   const nonce = crypto.randomBytes(16).toString('base64url');
-  const state = signState(clientSecret, nonce);
+  const state = signState(clientSecret, { nonce, redirectUri });
 
   const authorizeUrl = new URL('https://github.com/login/oauth/authorize');
   authorizeUrl.searchParams.set('client_id', clientId);

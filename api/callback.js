@@ -30,15 +30,17 @@ module.exports = async (req, res) => {
   const url = new URL(req.url, `https://${req.headers.host}`);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
+  const stateData = verifyState(clientSecret, state);
 
-  if (!code || !verifyState(clientSecret, state)) {
+  if (!code || !stateData) {
     res.status(400).send(html(post('authorization:github:error:state mismatch')));
     return;
   }
 
-  const host = req.headers['x-forwarded-host'] || req.headers.host;
-  const protocol = req.headers['x-forwarded-proto'] || 'https';
-  const redirectUri = `${protocol}://${host}/api/callback`;
+  // Reuse the exact redirect_uri string from step 1 (embedded in the signed
+  // state) instead of recomputing it from this request's own headers — see
+  // the comment in auth.js for why.
+  const redirectUri = stateData.redirectUri;
 
   try {
     const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
@@ -49,7 +51,14 @@ module.exports = async (req, res) => {
     const data = await tokenRes.json();
 
     if (!data.access_token) {
-      res.status(400).send(html(post(`authorization:github:error:${data.error_description || 'no token returned'}`)));
+      // TEMPORARY: include the exact redirect_uri sent to GitHub, and this
+      // request's own headers, to diagnose a recurring "bad_verification_code"
+      // error even after fixing the redirect_uri to no longer be recomputed
+      // independently here. Remove once resolved.
+      const debug = `redirect_uri=${redirectUri} host=${req.headers.host} x-forwarded-host=${req.headers['x-forwarded-host']} x-forwarded-proto=${req.headers['x-forwarded-proto']}`;
+      res.status(400).send(html(post(
+        `authorization:github:error:${data.error_description || data.error || 'no token returned'} | ${debug}`
+      )));
       return;
     }
 
